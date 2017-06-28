@@ -11,6 +11,15 @@ date_default_timezone_set('America/Caracas');
 
 define('EOL',(PHP_SAPI == 'cli') ? PHP_EOL : '<br />');
 $id_arribo = $_GET['arribo'];
+// consulta de los datos
+require_once('conexion.php');
+
+  $consulta = "SELECT * FROM arribo WHERE ID_arribo=$id_arribo";
+  $resultado = $conexion->query($consulta);
+  var_dump($resultado);
+
+
+
 /** Include PHPExcel */
 require_once ('./Classes/PHPExcel.php');
 
