@@ -1,6 +1,6 @@
     <script type="text/javascript">
         $(document).ready(function(){
-            
+
             var permiso = $('.permiso').text();
 
 
@@ -12,10 +12,10 @@
               $('.boton').hide();
               $('.eliminar').hide();
               break;
-      
+
       }
-           
-         
+
+
     });
 	</script>
 
@@ -51,7 +51,7 @@
       <td>{{post.Fecha_arribo | date:'dd-MM-yyyy '}}</td>
       <td>
         <a ui-sref="detalle_estudio({id_estudio: post.ID_arribo})"><i class="fa fa-pencil" data-toggle="tooltip" data-placement="bottom" title="Editar Puerto"></i></a>
-          <a href=""><i class="fa fa-download" data-toggle="tooltip" data-placement="bottom" title="Descargar PDF"></i></a>
+          <a href="./excel.php"><i class="fa fa-download" data-toggle="tooltip" data-placement="bottom" title="Descargar PDF"></i></a>
         <a href=""><i class="fa fa-trash eliminar" data-toggle="tooltip" data-placement="bottom" title="Eliminar Puerto"></i></a>
       </td>
     </tr>
