@@ -79,7 +79,7 @@ $objPHPExcel->removeSheetByIndex($sheetIndex);
 $sheetIndex = $objPHPExcel->getIndex($objPHPExcel-> getSheetByName('Hoja1'));
 $objPHPExcel->getActiveSheet()->setTitle("Reporte");
 $objPHPExcel->setActiveSheetIndex($sheetIndex)
-              ->setCellValue('L1', $id_arribo);
+              ->setCellValue('L1', $resultado[0]['ID_agencias']);
 // $objPHPExcel->setActiveSheetIndex($sheetIndex)
 //               ->setCellValue('L13', $var[0]['subproceso']);
 // $objPHPExcel->setActiveSheetIndex($sheetIndex)
@@ -198,8 +198,8 @@ $objPHPExcel->setActiveSheetIndex($sheetIndex)
 // $objWriter = new PHPExcel_Writer_Excel2007($objPHPExcel);
 // $objWriter->save(str_replace('.php', '.xlsx', __FILE__));
 
-// $objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel5');
-// $objWriter->save('php://output');
+$objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel5');
+$objWriter->save('php://output');
 exit;
 
 //$objPHPExcel->getActiveSheet()->setCellValue('A8',"Hello\nWorld");
