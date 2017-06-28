@@ -10,7 +10,7 @@ ini_set('display_startup_errors', TRUE);
 date_default_timezone_set('America/Caracas');
 
 define('EOL',(PHP_SAPI == 'cli') ? PHP_EOL : '<br />');
-$_GET['arribo']==$id_arribo;
+
 /** Include PHPExcel */
 require_once ('./Classes/PHPExcel.php');
 
@@ -33,7 +33,7 @@ $objPHPExcel->
               'color' => array('argb' => 'FFA5A5A5'),
             )
           ),
-        );
+);
 $objPHPExcel->getActiveSheet()->getColumnDimension('C')->setAutoSize(true);
 $objPHPExcel->getActiveSheet()->getColumnDimension('D')->setAutoSize(true);
 $objPHPExcel->getActiveSheet()->getColumnDimension('E')->setAutoSize(true);
@@ -63,12 +63,13 @@ $objPHPExcel->getActiveSheet()->getColumnDimension('AC')->setAutoSize(true);
 $objPHPexcel2 = PHPExcel_IOFactory::load('Formato_reporte_SAO.xlsx');
 $objClonedWorksheet = clone $objPHPexcel2->getSheetByName('Hoja1');
 $objPHPExcel->addExternalSheet($objClonedWorksheet);
+$objPHPExcel->getActiveSheet()->setTitle("Reporte");
 // Add some data
- $sheetIndex = $objPHPExcel->getIndex($objPHPExcel-> getSheetByName('Worksheet'));
-$objPHPExcel->removeSheetByIndex($sheetIndex);
-$sheetIndex = $objPHPExcel->getIndex($objPHPExcel-> getSheetByName('Hoja1'));
-$objPHPExcel->setActiveSheetIndex($sheetIndex)
-              ->setCellValue('L1', 'proceso');
+// $sheetIndex = $objPHPExcel->getIndex($objPHPExcel-> getSheetByName('Worksheet'));
+// $objPHPExcel->removeSheetByIndex($sheetIndex);
+// $sheetIndex = $objPHPExcel->getIndex($objPHPExcel-> getSheetByName('Hoja1'));
+// $objPHPExcel->setActiveSheetIndex($sheetIndex)
+//               ->setCellValue('F13', $var[0]['proceso']);
 // $objPHPExcel->setActiveSheetIndex($sheetIndex)
 //               ->setCellValue('L13', $var[0]['subproceso']);
 // $objPHPExcel->setActiveSheetIndex($sheetIndex)
