@@ -62,10 +62,10 @@ $objPHPExcel->getActiveSheet()->getColumnDimension('AC')->setAutoSize(true);
 
 $objPHPexcel2 = PHPExcel_IOFactory::load('Formato_reporte_SAO.xlsx');
 $objClonedWorksheet = clone $objPHPexcel2->getSheetByName('Hoja1');
-// $objPHPExcel->addExternalSheet($objClonedWorksheet);
+$objPHPExcel->addExternalSheet($objClonedWorksheet);
 // Add some data
- //$sheetIndex = $objPHPExcel->getIndex($objPHPExcel-> getSheetByName('Worksheet'));
-// $objPHPExcel->removeSheetByIndex($sheetIndex);
+ $sheetIndex = $objPHPExcel->getIndex($objPHPExcel-> getSheetByName('Worksheet'));
+$objPHPExcel->removeSheetByIndex($sheetIndex);
 $sheetIndex = $objPHPExcel->getIndex($objPHPExcel-> getSheetByName('Hoja1'));
 $objPHPExcel->setActiveSheetIndex($sheetIndex)
               ->setCellValue('L1', 'proceso');
