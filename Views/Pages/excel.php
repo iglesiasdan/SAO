@@ -8,7 +8,7 @@ date_default_timezone_set('America/Caracas');
 define('EOL',(PHP_SAPI == 'cli') ? PHP_EOL : '<br />');
 
 /** Include PHPExcel */
-require_once ('/Classes/PHPExcel.php');
+require_once ('./Classes/PHPExcel.php');
 
 //echo $resul;
 $objPHPExcel = new PHPExcel();
