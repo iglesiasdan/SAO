@@ -196,10 +196,10 @@ $objPHPExcel->setActiveSheetIndex($sheetIndex)
 
 
 $objWriter = new PHPExcel_Writer_Excel2007($objPHPExcel);
-//$objWriter->save(str_replace('.php', '.xlsx', __FILE__));
+$objWriter->save(str_replace('.php', '.xlsx', __FILE__));
 
 // $objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel5');
-$objWriter->save('php://output');
+// $objWriter->save('php://output');
 exit;
 
 //$objPHPExcel->getActiveSheet()->setCellValue('A8',"Hello\nWorld");
