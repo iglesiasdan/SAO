@@ -17,7 +17,7 @@ require_once('conexion.php');
   $consulta = "SELECT * FROM arribo WHERE ID_arribo=$id_arribo";
   $resultado = $conexion->query($consulta);
   if ($row=mysqli_fetch_array($resultado)) {
-     var_dump($resultado);
+     var_dump($row);
   }
  
 
