@@ -3,7 +3,7 @@
 header('Content-type: application/vnd.ms-excel');
 
 // It will be called file.xls
-header('Content-Disposition: attachment; filename="file.xlsx"');
+header('Content-Disposition: attachment; filename="file.xls"');
 error_reporting(E_ALL);
 ini_set('display_errors', TRUE);
 ini_set('display_startup_errors', TRUE);
