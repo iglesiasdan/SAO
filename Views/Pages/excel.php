@@ -1,5 +1,9 @@
 <?php
+// We'll be outputting an excel file
+header('Content-type: application/vnd.ms-excel');
 
+// It will be called file.xls
+header('Content-Disposition: attachment; filename="file.xls"');
 error_reporting(E_ALL);
 ini_set('display_errors', TRUE);
 ini_set('display_startup_errors', TRUE);
@@ -181,10 +185,10 @@ $objPHPExcel->addExternalSheet($objClonedWorksheet);
 
 
 $objWriter = new PHPExcel_Writer_Excel2007($objPHPExcel);
-$objWriter->save(str_replace('.php', '.xlsx', __FILE__));
+//$objWriter->save(str_replace('.php', '.xlsx', __FILE__));
 
 // $objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel5');
-// $objWriter->save('php://output');
+$objWriter->save('php://output');
 exit;
 
 //$objPHPExcel->getActiveSheet()->setCellValue('A8',"Hello\nWorld");
