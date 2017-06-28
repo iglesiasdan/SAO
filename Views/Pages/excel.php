@@ -16,7 +16,7 @@ require_once('conexion.php');
 
   $consulta = "SELECT * FROM arribo WHERE ID_arribo=$id_arribo";
   $resultado = $conexion->query($consulta);
-  var_dump($resultado);
+  // var_dump($resultado[1]);
 
 
 
