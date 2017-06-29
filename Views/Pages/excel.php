@@ -21,7 +21,8 @@ require_once('conexion.php');
   if ($row=mysqli_fetch_array($resultado)) {
      // var_dump($row);
   }
-  $consulta2 = "SELECT * from buque where ID_buque=$row['ID_buque']";
+  $id_buque=$row['ID_buque'];
+  $consulta2 = "select * from buque where ID_buque=$id_buque";
   $resultado2 = $conexion->query($consulta2);
   if ($row2=mysqli_fetch_array($resultado2)) {
      var_dump($row2);
