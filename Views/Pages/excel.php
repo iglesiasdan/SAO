@@ -32,7 +32,7 @@ require_once('conexion.php');
   if ($row3=mysqli_fetch_array($resultado3)) {
       echo $consulta3;
      // var_dump($row3);
-      echo $row3[1];
+      echo $row3[10];
   }
 
 
