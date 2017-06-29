@@ -14,10 +14,12 @@ $id_arribo = $_GET['arribo'];
 // consulta de los datos
 require_once('conexion.php');
 
-  $consulta = "SELECT * FROM arribo WHERE ID_arribo=$id_arribo";
+  $consulta = "select ID_arribo,Fecha_arribo,Observaciones,Diferencias_calado,Calado_popa,Calado_proa,Numero_IMO,arr.ID_agencia,arr.ID_puerto,Nombre_puerto,arr.ID_buque,Nombre_buque,ag.Nombre_agencia
+      from arribo as arr,agencia as ag, puerto as p, buque as b where ag.ID_agencia=arr.ID_agencia and p.ID_puerto=arr.ID_puerto AND b.ID_buque=arr.ID_buque AND ID_arribo=$id_arribo
+      order by Fecha_arribo desc";
   $resultado = $conexion->query($consulta);
   if ($row=mysqli_fetch_array($resultado)) {
-     var_dump($row);
+     var_dump($row['']);
   }
  
 
