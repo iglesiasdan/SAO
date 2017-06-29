@@ -31,7 +31,8 @@ require_once('conexion.php');
   $resultado3 = $conexion->query($consulta3);
   if ($row3=mysqli_fetch_array($resultado3)) {
       echo $consulta3;
-     var_dump($row3);
+     // var_dump($row3);
+      echo $row3[1];
   }
 
 
