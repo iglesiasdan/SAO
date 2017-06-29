@@ -19,9 +19,13 @@ require_once('conexion.php');
       order by Fecha_arribo desc";
   $resultado = $conexion->query($consulta);
   if ($row=mysqli_fetch_array($resultado)) {
-     var_dump($row);
+     // var_dump($row);
   }
- 
+  $consulta2 = "SELECT * from buque where ID_buque=$row['ID_buque']";
+  $resultado2 = $conexion->query($consulta2);
+  if ($row2=mysqli_fetch_array($resultado2)) {
+     var_dump($row2);
+  }
 
 
 
