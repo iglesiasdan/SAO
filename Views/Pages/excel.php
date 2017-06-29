@@ -19,7 +19,7 @@ require_once('conexion.php');
       order by Fecha_arribo desc";
   $resultado = $conexion->query($consulta);
   if ($row=mysqli_fetch_array($resultado)) {
-     var_dump($row['']);
+     var_dump($row);
   }
  
 
