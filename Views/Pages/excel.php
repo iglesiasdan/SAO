@@ -30,6 +30,7 @@ require_once('conexion.php');
   $consulta3="select * from estudio where ID_arribo=$id_arribo ";
   $resultado3 = $conexion->query($consulta3);
   if ($row3=mysqli_fetch_array($resultado3)) {
+      echo $consulta3;
      var_dump($row3);
   }
 
