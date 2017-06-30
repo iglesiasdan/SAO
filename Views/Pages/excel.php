@@ -27,11 +27,17 @@ require_once('conexion.php');
   if ($row2=mysqli_fetch_array($resultado2)) {
      // var_dump($row2);
   }
-  $consulta3="SELECT * FROM estudio WHERE ID_arribo=1 ORDER BY ID_estudio";
-  $resultado3 = $conexion->query($consulta3);
-  while ($row3=mysqli_fetch_array($resultado3)) {
-      echo $consulta3;
-     print_r($row3);
+  $consulta3="SELECT count(*) as total from estudio WHERE ID_arribo=$id_arribo";
+  $resultado3= $conexion->query($consulta3);
+  $data=mysql_fetch_assoc($resultado3);
+  echo "size";
+  echo $data['total'];
+
+  $consulta4="SELECT * FROM estudio WHERE ID_arribo=$id_arribo ORDER BY ID_estudio";
+  $resultado4 = $conexion->query($consulta4);
+  while ($row4=mysqli_fetch_array($resultado4)) {
+    //   echo $consulta4;
+     print_r($row4);
   }
 
 
