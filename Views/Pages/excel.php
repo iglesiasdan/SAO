@@ -136,9 +136,9 @@ $consulta = "select ID_arribo,Fecha_arribo,Observaciones,Diferencias_calado,Cala
   $consulta3="SELECT count(1) as total from estudio WHERE ID_arribo=$id_arribo";
   $resultado3= $conexion->query($consulta3);
   $data=mysqli_fetch_array($resultado3);
-  echo "size";
+  // echo "size";
   $i=$data[0];
-  echo $i;
+  // echo $i;
   $tam=strlen($i);
   $pag= $tam/4;
   $arr = array();
@@ -154,7 +154,7 @@ for ($j=0; $j < $i; $j++) {
     $row4=mysqli_fetch_array($resultado4);
     $arr[$j] = $row4;
 }
-print_r($arr);
+// print_r($arr);
 
 
 
