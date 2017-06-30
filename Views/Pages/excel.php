@@ -31,7 +31,7 @@ require_once('conexion.php');
   $resultado3= $conexion->query($consulta3);
   $data=mysql_fetch_array($resultado3);
   echo "size";
-  print_r $data;
+  print_r($data);
 
   $consulta4="SELECT * FROM estudio WHERE ID_arribo=$id_arribo ORDER BY ID_estudio";
   $resultado4 = $conexion->query($consulta4);
