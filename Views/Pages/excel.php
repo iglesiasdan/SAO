@@ -29,12 +29,15 @@ require_once('conexion.php');
   }
   $consulta3="SELECT * FROM estudio WHERE ID_arribo=1 ORDER BY ID_estudio";
   $resultado3 = $conexion->query($consulta3);
-  if ($row3=mysqli_fetch_array($resultado3)) {
-      echo $consulta3;
-     print_r($row3);
-  }
+//   if ($row3=mysqli_fetch_array($resultado3)) {
+//       echo $consulta3;
+//      print_r($row3);
+//   }
 
-
+while($rows3=mysql_fetch_array($resultado3)){ 
+echo $rows3['ID_arribo']."<br>"; 
+echo $rows3['ID_estudio']."<br>"; 
+} 
 
 // /** Include PHPExcel */
 // require_once ('./Classes/PHPExcel.php');
