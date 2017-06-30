@@ -27,12 +27,11 @@ require_once('conexion.php');
   if ($row2=mysqli_fetch_array($resultado2)) {
      // var_dump($row2);
   }
-  $consulta3="select * from usuario";
+  $consulta3="show tables";
   $resultado3 = $conexion->query($consulta3);
   if ($row3=mysqli_fetch_array($resultado3)) {
       echo $consulta3;
-     // var_dump($row3);
-      echo $row3[10];
+     var_dump($row3);
   }
 
 
