@@ -112,7 +112,26 @@ $consulta = "select ID_arribo,Fecha_arribo,Observaciones,Diferencias_calado,Cala
   $consulta2 = "select * from buque where ID_buque=$id_buque";
   $resultado2 = $conexion->query($consulta2);
   if ($row2=mysqli_fetch_array($resultado2)) {
-     // var_dump($row2);
+     $objPHPExcel->setActiveSheetIndex($sheetIndex)
+              ->setCellValue('C11', $row2['Abanderamiento']);
+     $objPHPExcel->setActiveSheetIndex($sheetIndex)
+              ->setCellValue('C13', $row2['Eslora']);
+     $objPHPExcel->setActiveSheetIndex($sheetIndex)
+              ->setCellValue('C15', $row2['Manga']);
+     $objPHPExcel->setActiveSheetIndex($sheetIndex)
+              ->setCellValue('C17', $row2['Puntal']);
+     $objPHPExcel->setActiveSheetIndex($sheetIndex)
+              ->setCellValue('K7', $row2['N_tanques_babor']);
+     $objPHPExcel->setActiveSheetIndex($sheetIndex)
+              ->setCellValue('K9', $row2['N_tanques_estribor']);
+     $objPHPExcel->setActiveSheetIndex($sheetIndex)
+              ->setCellValue('K11', $row2['N_tanques_db']);
+     $objPHPExcel->setActiveSheetIndex($sheetIndex)
+              ->setCellValue('K13', $row2['Total_tanques']);
+     $objPHPExcel->setActiveSheetIndex($sheetIndex)
+              ->setCellValue('K15', $row2['Capacidad_tanques']);
+     $objPHPExcel->setActiveSheetIndex($sheetIndex)
+              ->setCellValue('K17', $row2['Vol_total']);
   }
   $consulta3="SELECT count(1) as total from estudio WHERE ID_arribo=$id_arribo";
   $resultado3= $conexion->query($consulta3);
@@ -120,7 +139,13 @@ $consulta = "select ID_arribo,Fecha_arribo,Observaciones,Diferencias_calado,Cala
   echo "size";
   $i=$data[0];
   echo $i;
+  $tam=strlen($i);
+  $pag= $tam/4;
   $arr = array();
+  if (strlen($i)>4) {
+    $objPHPExcel->setActiveSheetIndex($sheetIndex)
+              ->setCellValue('L3', 'Pagina 1 de ');
+  }
 
   $consulta4="SELECT * FROM estudio WHERE ID_arribo=$id_arribo ORDER BY ID_estudio";
   $resultado4 = $conexion->query($consulta4);
