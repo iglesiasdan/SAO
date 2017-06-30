@@ -27,16 +27,21 @@ require_once('conexion.php');
   if ($row2=mysqli_fetch_array($resultado2)) {
      // var_dump($row2);
   }
-  $estudio={};
-  $consulta3="SELECT * FROM estudio WHERE ID_arribo=$id_arribo ORDER BY ID_estudio";
-  $resultado3 = $conexion->query($consulta3);
-//   $rows = mysql_num_rows($resultado3);
-  while ($row3=mysqli_fetch_array($resultado3)) {
+  $consulta3="SELECT count(1) as total from estudio WHERE ID_arribo=$id_arribo";
+  $resultado3= $conexion->query($consulta3);
+  $data=mysqli_fetch_array($resultado3);
+  echo "size";
+  print_r($data);
+  
+
+  $consulta4="SELECT * FROM estudio WHERE ID_arribo=$id_arribo ORDER BY ID_estudio";
+  $resultado4 = $conexion->query($consulta4);
+//   $rows = mysql_num_rows($resultado4);
+  while ($row4=mysqli_fetch_array($resultado4)) {
     //   echo $consulta4;
-     print_r($row3);
-     $estudio[$row3['N_tanque']]=$row3;
+     print_r($row4);
   }
-  //echo $rows;
+//   echo $rows;
 
 
 // /** Include PHPExcel */
