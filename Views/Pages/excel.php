@@ -31,16 +31,22 @@ require_once('conexion.php');
   $resultado3= $conexion->query($consulta3);
   $data=mysqli_fetch_array($resultado3);
   echo "size";
-  print_r($data);
-  
+  $i=$data[0];
+  echo $i;
+  $arr = array();
 
   $consulta4="SELECT * FROM estudio WHERE ID_arribo=$id_arribo ORDER BY ID_estudio";
   $resultado4 = $conexion->query($consulta4);
 //   $rows = mysql_num_rows($resultado4);
-  while ($row4=mysqli_fetch_array($resultado4)) {
-    //   echo $consulta4;
-     print_r($row4);
-  }
+for ($j=0; $j < $i; $j++) { 
+    $row4=mysqli_fetch_array($resultado4);
+    $arr[$j] = $row4;
+}
+print_r($arr);
+//   while ($row4=mysqli_fetch_array($resultado4)) {
+//     //   echo $consulta4;
+//      print_r($row4);
+//   }
 //   echo $rows;
 
 
