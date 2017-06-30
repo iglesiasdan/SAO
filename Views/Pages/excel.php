@@ -29,9 +29,9 @@ require_once('conexion.php');
   }
   $consulta3="SELECT count(*) as total from estudio WHERE ID_arribo=$id_arribo";
   $resultado3= $conexion->query($consulta3);
-  $data=mysql_fetch_assoc($resultado3);
+  $data=mysql_fetch_array($resultado3);
   echo "size";
-  echo $data['total'];
+  print_r $data;
 
   $consulta4="SELECT * FROM estudio WHERE ID_arribo=$id_arribo ORDER BY ID_estudio";
   $resultado4 = $conexion->query($consulta4);
