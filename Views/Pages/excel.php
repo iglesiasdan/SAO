@@ -1,7 +1,7 @@
 <?php
 // We'll be outputting an excel file
 header('Content-type: application/vnd.ms-excel');
-
+session_start();
 // It will be called file.xls
 header('Content-Disposition: attachment; filename="file.xls"');
 error_reporting(E_ALL);
