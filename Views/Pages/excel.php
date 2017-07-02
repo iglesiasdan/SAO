@@ -117,14 +117,9 @@ $consulta = "select ID_arribo,Fecha_arribo,Observaciones,Diferencias_calado,Cala
               ->setCellValue('L3', 'Pagina 1 de '.$pag);
     
   }
+  
 
-  $consulta4="SELECT * FROM estudio WHERE ID_arribo=$id_arribo ORDER BY ID_estudio";
-  $resultado4 = $conexion->query($consulta4);
-//   $rows = mysql_num_rows($resultado4);
-for ($j=0; $j < $i; $j++) { 
-    $row4=mysqli_fetch_array($resultado4);
-    $arr[$j] = $row4;
-}
+ 
 
 
 $u=$_SESSION['user'];
@@ -136,7 +131,28 @@ $objPHPExcel->setActiveSheetIndex($sheetIndex)
               ->setCellValue('J38', $fila['Nombre']);
 
 
-
+$col = array('D','F','H','J','K');
+$cont=0;
+$paginado=0;
+$consulta4="SELECT * FROM estudio WHERE ID_arribo=$id_arribo ORDER BY ID_estudio";
+$resultado4 = $conexion->query($consulta4);
+//   $rows = mysql_num_rows($resultado4);
+while (mysqli_fetch_array($resultado4)) { 
+    $row4=mysqli_fetch_array($resultado4);
+    $arr['Actividad']+=$resultado4['Actividad'];
+    $arr['Salinidad']+=$resultado4['Salinidad'];
+    $arr['Temperatura']+=$resultado4['Temperatura'];
+    $arr['Conductividad']+=$resultado4['Conductividad'];
+    $arr['PH']+=$resultado4['PH'];
+    if ($cont-3==0) {
+      $paginado++;
+      $cont=0;
+      $objClonedWorksheet = clone $objPHPexcel->getSheetByName('Reporte');
+      $objPHPExcel->addExternalSheet($objClonedWorksheet);
+      $objPHPExcel->getActiveSheet()->setTitle("Reporte".$paginado);
+    }
+    $cont++;
+}
 
 
 
