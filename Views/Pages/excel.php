@@ -139,11 +139,11 @@ $resultado4 = $conexion->query($consulta4);
 //   $rows = mysql_num_rows($resultado4);
 while (mysqli_fetch_array($resultado4)) { 
     $row4=mysqli_fetch_array($resultado4);
-    $arr[0]+=$resultado4['Actividad'];
-    $arr[1]+=$resultado4['Salinidad'];
-    $arr[2]+=$resultado4['Temperatura'];
-    $arr[3]+=$resultado4['Conductividad'];
-    $arr[4]+=$resultado4['PH'];
+    // $arr[0]+=$resultado4['Actividad'];
+    // $arr[1]+=$resultado4['Salinidad'];
+    // $arr[2]+=$resultado4['Temperatura'];
+    // $arr[3]+=$resultado4['Conductividad'];
+    // $arr[4]+=$resultado4['PH'];
     if ($cont-3==0) {
       $paginado++;
       $cont=0;
