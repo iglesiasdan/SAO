@@ -68,20 +68,20 @@ myApp.controller('buqueController',['$scope','$http','urlbase','$stateParams','$
 
 
 
-$http({
-  method: 'GET',
+// $http({
+//   method: 'GET',
 
-  url: urlbase+'buques/'+$stateParams.id_estudio
-}).then(function successCallback(response) {
-    $scope.posts = response.data[0];
-    $rootScope.selectedBuque = response.data[0];
+//   url: urlbase+'buques/'+$stateParams.id_estudio
+// }).then(function successCallback(response) {
+//     $scope.posts = response.data[0];
+//     $rootScope.selectedBuque = response.data[0];
 
     // console.log("buque  ");
     // console.log(response.data[0]);
     //----------------------consulta de buque------------
     $http({
       method: 'GET',
-      url: urlbase+'arribos/'+response.data[0].ID_buque
+      url: urlbase+'arribos/'+$stateParams.id_estudio
     }).then(function successCallback(response) {
         $scope.posts1 = response.data[0];
 
@@ -211,16 +211,16 @@ $http({
         // or server returns response with an error status.
 
     });
-    //---------------estudios del arribo----------------- *227 reportar robo de equipos ccg
+    //---------------estudios del arribo----------------- 
 
 
 
 
-  }, function errorCallback(response) {
-    console.log(response.statusText);
-    // called asynchronously if an error occurs
-    // or server returns response with an error status.
-});
+//   }, function errorCallback(response) {
+//     console.log(response.statusText);
+//     // called asynchronously if an error occurs
+//     // or server returns response with an error status.
+// });
 }
   $scope.submit2 = function(){
     //alert('hola');
