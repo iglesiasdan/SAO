@@ -236,7 +236,7 @@ $http({
     // var str = json["Fecha_arribo"];
     // var res = str.split("T");
     // json["Fecha_arribo"] = res[0];
-
+    console.log(json);
 
     if ($stateParams.id_estudio === undefined) {
       // console.log(this.posts1.Fecha)
