@@ -146,22 +146,28 @@ while ($row4=mysqli_fetch_array($resultado4)) {
     if ($cont-3==0) {
       $paginado++;
       $cont=0;
-
       $objWorkSheetBase = $objPHPExcel->getSheet($sheetIndex);
-
-//  Create a clone of the current sheet, with all its style properties
-$objWorkSheet1 = clone $objWorkSheetBase;
-//  Set the newly-cloned sheet title
-$objWorkSheet1->setTitle('Cloned Sheet'.$paginado);
-//  Attach the newly-cloned sheet to the $objPHPExcel workbook
-$objPHPExcel->addSheet($objWorkSheet1);
-
-
-      // $objPHPExcel->setActiveSheetIndex($sheetIndex);
-      // $objClonedWorksheet = clone $objPHPexcel->getSheetByName('Reporte');
-      // $objPHPExcel->addExternalSheet($objClonedWorksheet);
-      // $objPHPExcel->getActiveSheet()->setTitle("Reporte".$paginado);
+      $objWorkSheet1 = clone $objWorkSheetBase;
+      $objWorkSheet1->setTitle('Reporte'.$paginado);
+      $objPHPExcel->addSheet($objWorkSheet1);
+      $sheetIndex = $objPHPExcel->getIndex($objPHPExcel-> getSheetByName('Reporte'.$paginado)); 
+      $objPHPExcel->setActiveSheetIndex($sheetIndex)
+              ->setCellValue('L3', 'Pagina '.$paginado.' de '.$pag);
     }
+    $objPHPExcel->setActiveSheetIndex($sheetIndex)
+              ->setCellValue($col.'28', $row4['N_tanque']);
+    $objPHPExcel->setActiveSheetIndex($sheetIndex)
+              ->setCellValue($col.'29', $row4['Actividad']);
+    $objPHPExcel->setActiveSheetIndex($sheetIndex)
+              ->setCellValue($col.'30', $row4['Salinidad']);
+    $objPHPExcel->setActiveSheetIndex($sheetIndex)
+              ->setCellValue($col.'31', $row4['Temperatura']);  
+    $objPHPExcel->setActiveSheetIndex($sheetIndex)
+              ->setCellValue($col.'32', $row4['Conductividad']);
+    $objPHPExcel->setActiveSheetIndex($sheetIndex)
+              ->setCellValue($col.'33', $row4['Ph']);
+    $objPHPExcel->setActiveSheetIndex($sheetIndex)
+              ->setCellValue($col.'34', $row4['Volumen']); 
     $cont++;
 }
 
