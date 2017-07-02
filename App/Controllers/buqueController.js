@@ -87,6 +87,7 @@ console.log($stateParams.id_estudio);
 
         response.data.Fecha = new Date(response.data.Fecha_arribo);
         $rootScope.post1=response.data;
+        $rootScope.selectedBuque = response.data;
         $rootScope.selectedPuerto = response.data;
         $rootScope.selectedAgencia = response.data;
         //---------------estudios del arribo----------------------------
