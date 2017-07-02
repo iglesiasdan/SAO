@@ -146,7 +146,7 @@ while ($row4=mysqli_fetch_array($resultado4)) {
     if ($cont-3==0) {
       $paginado++;
       $cont=0;
-      $objPHPExcel->setActiveSheetIndex($sheetIndex)
+      $objPHPExcel->setActiveSheetIndex($sheetIndex);
       $objClonedWorksheet = clone $objPHPexcel->getSheetByName('Reporte');
       $objPHPExcel->addExternalSheet($objClonedWorksheet);
       $objPHPExcel->getActiveSheet()->setTitle("Reporte".$paginado);
