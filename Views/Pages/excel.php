@@ -146,10 +146,21 @@ while ($row4=mysqli_fetch_array($resultado4)) {
     if ($cont-3==0) {
       $paginado++;
       $cont=0;
-      $objPHPExcel->setActiveSheetIndex($sheetIndex);
-      $objClonedWorksheet = clone $objPHPexcel->getSheetByName('Reporte');
-      $objPHPExcel->addExternalSheet($objClonedWorksheet);
-      $objPHPExcel->getActiveSheet()->setTitle("Reporte".$paginado);
+
+      $objWorkSheetBase = $objPHPExcel->getSheet($sheetIndex);
+
+//  Create a clone of the current sheet, with all its style properties
+$objWorkSheet1 = clone $objWorkSheetBase;
+//  Set the newly-cloned sheet title
+$objWorkSheet1->setTitle('Cloned Sheet'.$paginado);
+//  Attach the newly-cloned sheet to the $objPHPExcel workbook
+$objPHPExcel->addSheet($objWorkSheet1);
+
+
+      // $objPHPExcel->setActiveSheetIndex($sheetIndex);
+      // $objClonedWorksheet = clone $objPHPexcel->getSheetByName('Reporte');
+      // $objPHPExcel->addExternalSheet($objClonedWorksheet);
+      // $objPHPExcel->getActiveSheet()->setTitle("Reporte".$paginado);
     }
     $cont++;
 }
