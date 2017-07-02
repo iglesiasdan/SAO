@@ -138,11 +138,11 @@ $consulta4="SELECT * FROM estudio WHERE ID_arribo=$id_arribo ORDER BY ID_estudio
 $resultado4 = $conexion->query($consulta4);
 //   $rows = mysql_num_rows($resultado4);
 while ($row4=mysqli_fetch_array($resultado4)) { 
-    $arr[0]+=$row4['Actividad'];
-    $arr[1]+=$row4['Salinidad'];
-    $arr[2]+=$row4['Temperatura'];
-    $arr[3]+=$row4['Conductividad'];
-    $arr[4]+=$row4['PH'];
+    // $arr[0]+=$row4['Actividad'];
+    // $arr[1]+=$row4['Salinidad'];
+    // $arr[2]+=$row4['Temperatura'];
+    // $arr[3]+=$row4['Conductividad'];
+    // $arr[4]+=$row4['PH'];
     if ($cont-3==0) {
       $paginado++;
       $cont=0;
