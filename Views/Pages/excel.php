@@ -133,7 +133,7 @@ $objPHPExcel->setActiveSheetIndex($sheetIndex)
 
 $col = array('D','F','H','J','K');
 $cont=0;
-$paginado=0;
+$paginado=1;
 $consulta4="SELECT * FROM estudio WHERE ID_arribo=$id_arribo ORDER BY ID_estudio";
 $resultado4 = $conexion->query($consulta4);
 //   $rows = mysql_num_rows($resultado4);
@@ -143,7 +143,7 @@ while ($row4=mysqli_fetch_array($resultado4)) {
     $arr[2]+=$row4['Temperatura'];
     $arr[3]+=$row4['Conductividad'];
     $arr[4]+=$row4['Ph'];
-    if ($cont-3==0) {
+    if ($cont-4==0) {
       $paginado++;
       $cont=0;
       $objWorkSheetBase = $objPHPExcel->getSheet($sheetIndex);
@@ -153,6 +153,62 @@ while ($row4=mysqli_fetch_array($resultado4)) {
       $sheetIndex = $objPHPExcel->getIndex($objPHPExcel-> getSheetByName('Reporte'.$paginado)); 
       $objPHPExcel->setActiveSheetIndex($sheetIndex)
               ->setCellValue('L3', 'Pagina '.$paginado.' de '.$pag);
+              $objPHPExcel->setActiveSheetIndex($sheetIndex)
+                        ->setCellValue('D28', '');
+              $objPHPExcel->setActiveSheetIndex($sheetIndex)
+                        ->setCellValue('D29', '');
+              $objPHPExcel->setActiveSheetIndex($sheetIndex)
+                        ->setCellValue('D30', '');
+              $objPHPExcel->setActiveSheetIndex($sheetIndex)
+                        ->setCellValue('D31', '');  
+              $objPHPExcel->setActiveSheetIndex($sheetIndex)
+                        ->setCellValue('D32', '');
+              $objPHPExcel->setActiveSheetIndex($sheetIndex)
+                        ->setCellValue('D33', '');
+              $objPHPExcel->setActiveSheetIndex($sheetIndex)
+                        ->setCellValue('D34',''); 
+              $objPHPExcel->setActiveSheetIndex($sheetIndex)
+                        ->setCellValue('F28', '');
+              $objPHPExcel->setActiveSheetIndex($sheetIndex)
+                        ->setCellValue('F29', '');
+              $objPHPExcel->setActiveSheetIndex($sheetIndex)
+                        ->setCellValue('F30', '');
+              $objPHPExcel->setActiveSheetIndex($sheetIndex)
+                        ->setCellValue('F31', '');  
+              $objPHPExcel->setActiveSheetIndex($sheetIndex)
+                        ->setCellValue('F32', '');
+              $objPHPExcel->setActiveSheetIndex($sheetIndex)
+                        ->setCellValue('F33', '');
+              $objPHPExcel->setActiveSheetIndex($sheetIndex)
+                        ->setCellValue('F34',''); 
+              $objPHPExcel->setActiveSheetIndex($sheetIndex)
+                        ->setCellValue('H28', '');
+              $objPHPExcel->setActiveSheetIndex($sheetIndex)
+                        ->setCellValue('H29', '');
+              $objPHPExcel->setActiveSheetIndex($sheetIndex)
+                        ->setCellValue('H30', '');
+              $objPHPExcel->setActiveSheetIndex($sheetIndex)
+                        ->setCellValue('H31', '');  
+              $objPHPExcel->setActiveSheetIndex($sheetIndex)
+                        ->setCellValue('H32', '');
+              $objPHPExcel->setActiveSheetIndex($sheetIndex)
+                        ->setCellValue('H33', '');
+              $objPHPExcel->setActiveSheetIndex($sheetIndex)
+                        ->setCellValue('H34',''); 
+              $objPHPExcel->setActiveSheetIndex($sheetIndex)
+                        ->setCellValue('J28', '');
+              $objPHPExcel->setActiveSheetIndex($sheetIndex)
+                        ->setCellValue('J29', '');
+              $objPHPExcel->setActiveSheetIndex($sheetIndex)
+                        ->setCellValue('J30', '');
+              $objPHPExcel->setActiveSheetIndex($sheetIndex)
+                        ->setCellValue('J31', '');  
+              $objPHPExcel->setActiveSheetIndex($sheetIndex)
+                        ->setCellValue('J32', '');
+              $objPHPExcel->setActiveSheetIndex($sheetIndex)
+                        ->setCellValue('J33', '');
+              $objPHPExcel->setActiveSheetIndex($sheetIndex)
+                        ->setCellValue('J34','');
     }
     $objPHPExcel->setActiveSheetIndex($sheetIndex)
               ->setCellValue($col[$cont].'28', $row4['N_tanque']);
