@@ -67,7 +67,7 @@ myApp.controller('buqueController',['$scope','$http','urlbase','$stateParams','$
 
 
 
-
+console.log($stateParams.id_estudio);
 // $http({
 //   method: 'GET',
 
