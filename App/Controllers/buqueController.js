@@ -226,11 +226,12 @@ $http({
     //alert('hola');
     var mes = this.posts1.Fecha.getMonth();
     mes++;
+    var fecha = new Date(this.posts1.Fecha.getFullYear(),mes,this.posts1.Fecha.getDate());
     var json = {};
     json["id_buque"] = this.selectedBuque.ID_buque;
     json["id_puerto"] = this.selectedPuerto.ID_puerto;
     json["id_agencia"] = this.selectedAgencia.ID_agencia;
-    json["fecha_arribo"] = this.posts1.Fecha.getDate()+"-"+mes+"-"+this.posts1.Fecha.getFullYear();
+    json["fecha_arribo"] = fecha;
     json["calado_proa"] = this.posts1.Calado_proa;
     json["calado_popa"] = this.posts1.Calado_popa;
     json["diferencias_calado"] = this.posts1.Diferencias_calado;
