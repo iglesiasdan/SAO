@@ -99,7 +99,7 @@
                      <div class="form-group">
                         <div class="col-sm-4">
                            <label class="control-label" style="text-align: left;"><strong>Cantidad de Tanques:</strong></label>
-                           <input disabled type="text" class="form-control" name="Cantidad_tanque" id="Cantidad_tanque" placeholder="Cantidad total de tanques" value={{selectedBuque.Total_tanques}}>
+                           <input disabled type="text" class="form-control" name="Cantidad_tanque" id="Cantidad_tanque" placeholder="Cantidad total de tanques" ng-model="selectedBuque.Total_tanques">
                         </div>
                         <div class="col-md-4">
                            <label class="control-label" style="text-align: left;"><strong>Num. Tanques Babor:</strong></label>
