@@ -126,6 +126,21 @@ for ($j=0; $j < $i; $j++) {
     $arr[$j] = $row4;
 }
 
+
+$u=$_SESSION['user'];
+$consulta = "SELECT * FROM usuario WHERE Username='$u'";
+$resultado = $conexion->query($consulta);
+$fila=mysqli_fetch_array($resultado);
+
+$objPHPExcel->setActiveSheetIndex($sheetIndex)
+              ->setCellValue('J38', $fila['Nombre']);
+
+
+
+
+
+
+
 $objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel5');
 $objWriter->save('php://output');
 exit;
