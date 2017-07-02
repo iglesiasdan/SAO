@@ -244,7 +244,7 @@ while ($row4=mysqli_fetch_array($resultado4)) {
       if ($i==0) {
         $sheetIndex = $objPHPExcel->getIndex($objPHPExcel-> getSheetByName('Reporte'));
       }else {
-        $sheetIndex = $objPHPExcel->getIndex($objPHPExcel-> getSheetByName('Reporte'.$i));
+        $sheetIndex = $objPHPExcel->getIndex($objPHPExcel-> getSheetByName('Reporte'.$i++));
       }
       $objPHPExcel->setActiveSheetIndex($sheetIndex)
               ->setCellValue('K29', $arr[0]);
