@@ -14,13 +14,6 @@ $id_arribo = $_GET['arribo'];
 // consulta de los datos
 require_once('conexion.php');
 
-  
-//   while ($row4=mysqli_fetch_array($resultado4)) {
-//     //   echo $consulta4;
-//      print_r($row4);
-//   }
-//   echo $rows;
-
 
 /** Include PHPExcel */
 require_once ('./Classes/PHPExcel.php');
@@ -45,36 +38,10 @@ $objPHPExcel->
             )
           ),
 );
-// $objPHPExcel->getActiveSheet()->getColumnDimension('C')->setAutoSize(true);
-// $objPHPExcel->getActiveSheet()->getColumnDimension('D')->setAutoSize(true);
-// $objPHPExcel->getActiveSheet()->getColumnDimension('E')->setAutoSize(true);
-// $objPHPExcel->getActiveSheet()->getColumnDimension('F')->setAutoSize(true);
-// $objPHPExcel->getActiveSheet()->getColumnDimension('G')->setAutoSize(true);
-// $objPHPExcel->getActiveSheet()->getColumnDimension('H')->setAutoSize(true);
-// $objPHPExcel->getActiveSheet()->getColumnDimension('I')->setAutoSize(true);
-// $objPHPExcel->getActiveSheet()->getColumnDimension('J')->setAutoSize(true);
-// $objPHPExcel->getActiveSheet()->getColumnDimension('K')->setAutoSize(true);
-// $objPHPExcel->getActiveSheet()->getColumnDimension('M')->setAutoSize(true);
-// $objPHPExcel->getActiveSheet()->getColumnDimension('N')->setAutoSize(true);
-// $objPHPExcel->getActiveSheet()->getColumnDimension('O')->setAutoSize(true);
-// $objPHPExcel->getActiveSheet()->getColumnDimension('P')->setAutoSize(true);
-// $objPHPExcel->getActiveSheet()->getColumnDimension('Q')->setAutoSize(true);
-// $objPHPExcel->getActiveSheet()->getColumnDimension('R')->setAutoSize(true);
-// $objPHPExcel->getActiveSheet()->getColumnDimension('S')->setAutoSize(true);
-// $objPHPExcel->getActiveSheet()->getColumnDimension('T')->setAutoSize(true);
-// $objPHPExcel->getActiveSheet()->getColumnDimension('U')->setAutoSize(true);
-// $objPHPExcel->getActiveSheet()->getColumnDimension('V')->setAutoSize(true);
-// $objPHPExcel->getActiveSheet()->getColumnDimension('W')->setAutoSize(true);
-// $objPHPExcel->getActiveSheet()->getColumnDimension('X')->setAutoSize(true);
-// $objPHPExcel->getActiveSheet()->getColumnDimension('Y')->setAutoSize(true);
-// $objPHPExcel->getActiveSheet()->getColumnDimension('Z')->setAutoSize(true);
-// $objPHPExcel->getActiveSheet()->getColumnDimension('AA')->setAutoSize(true);
-// $objPHPExcel->getActiveSheet()->getColumnDimension('AC')->setAutoSize(true);
 
 $objPHPexcel2 = PHPExcel_IOFactory::load('Formato_reporte_SAO.xlsx');
 $objClonedWorksheet = clone $objPHPexcel2->getSheetByName('Hoja1');
 $objPHPExcel->addExternalSheet($objClonedWorksheet);
-// $objPHPExcel->getActiveSheet()->setTitle("Reporte");
 // Add some data
 $sheetIndex = $objPHPExcel->getIndex($objPHPExcel-> getSheetByName('Worksheet'));
 $objPHPExcel->removeSheetByIndex($sheetIndex);
@@ -139,12 +106,16 @@ $consulta = "select ID_arribo,Fecha_arribo,Observaciones,Diferencias_calado,Cala
   // echo "size";
   $i=$data[0];
   // echo $i;
-  $tam=strlen($i);
-  $pag= $tam/4;
+  $tam = $i/4;
+  $pag= ceil($tam);
+  $objPHPExcel->setActiveSheetIndex($sheetIndex)
+              ->setCellValue('L3', 'Pagina 1 de 1');
   $arr = array();
-  if (strlen($i)>4) {
+  if ($pag>1) {
+    
     $objPHPExcel->setActiveSheetIndex($sheetIndex)
-              ->setCellValue('L3', 'Pagina 1 de ');
+              ->setCellValue('L3', 'Pagina 1 de '.$pag);
+    
   }
 
   $consulta4="SELECT * FROM estudio WHERE ID_arribo=$id_arribo ORDER BY ID_estudio";
@@ -154,129 +125,6 @@ for ($j=0; $j < $i; $j++) {
     $row4=mysqli_fetch_array($resultado4);
     $arr[$j] = $row4;
 }
-// print_r($arr);
-
-
-
-// $objPHPExcel->setActiveSheetIndex($sheetIndex)
-//               ->setCellValue('L1', $resultado[0]['ID_agencias']);
-// $objPHPExcel->setActiveSheetIndex($sheetIndex)
-//               ->setCellValue('L13', $var[0]['subproceso']);
-// $objPHPExcel->setActiveSheetIndex($sheetIndex)
-//               ->setCellValue('S13', $var[0]['fecha_emision']);
-// $objPHPExcel->setActiveSheetIndex($sheetIndex)
-//               ->setCellValue('Y13', $var[0]['fecha_actualizacion']);
-// $objPHPExcel->setActiveSheetIndex($sheetIndex)
-//               ->setCellValue('AC13', $var[0]['contador']);
-// $objPHPExcel->setActiveSheetIndex($sheetIndex)
-//               ->setCellValue('C11', 'REF:  '.$var[0]['ref']);
-// $objPHPExcel->setActiveSheetIndex($sheetIndex)
-//               ->setCellValue('E8', $var[0]['nombre_unidad']);
-// $objPHPExcel->setActiveSheetIndex($sheetIndex)
-//               ->setCellValue('AC9', $var[0]['vigencia']);
-// $objPHPExcel->setActiveSheetIndex($sheetIndex)
-//               ->setCellValue('AA7', $var[0]['codigo_form']);
-// $objPHPExcel->setActiveSheetIndex($sheetIndex)
-//               ->setCellValue('AC11', $var[0]['fecha_emisionF']);
-//
-// $casilla='16';
-// for ($cont=1,$i=0; $i < $tam; $i++) {
-//   $aux=(int)$casilla;
-//   $aux++;
-//   $casilla=(string)$aux;
-//   $objPHPExcel->getActiveSheet()->getStyle('C'.$casilla.':AC'.$casilla)->applyFromArray($borders);
-//   $cell='C'.$casilla;
-//   if ($i!=0) {
-//     if ( $var[$i]['actv_prod_serv']!= $var[$i-1]['actv_prod_serv']) {
-//       $cont++;
-//     }
-//   }
-//   $objPHPExcel->setActiveSheetIndex($sheetIndex)
-//               ->setCellValue($cell, $cont);
-//   $cell='D'.$casilla;
-//   $objPHPExcel->setActiveSheetIndex($sheetIndex)
-//               ->setCellValue($cell, $var[$i]['actv_prod_serv']);
-//   $cell='E'.$casilla;
-//   $objPHPExcel->setActiveSheetIndex($sheetIndex)
-//               ->setCellValue($cell, $var[$i]['descripcion']);
-//   $cell='F'.$casilla;
-//   $objPHPExcel->setActiveSheetIndex($sheetIndex)
-//               ->setCellValue($cell, $var[$i]['medidas']);
-//   $cell='G'.$casilla;
-//   $objPHPExcel->setActiveSheetIndex($sheetIndex)
-//               ->setCellValue($cell, $var[$i]['aspecto']);
-//   if ($var[$i]['condicion']==="NORMAL") {
-//     $cell='H'.$casilla;
-//   $objPHPExcel->setActiveSheetIndex($sheetIndex)
-//               ->setCellValue($cell, 'X');
-//   }
-//   if ($var[$i]['condicion']==="EMERGENCIA") {
-//     $cell='J'.$casilla;
-//   $objPHPExcel->setActiveSheetIndex($sheetIndex)
-//               ->setCellValue($cell, 'X');
-//   }
-//   if ($var[$i]['condicion']==="ANORMAL") {
-//     $cell='I'.$casilla;
-//   $objPHPExcel->setActiveSheetIndex($sheetIndex)
-//               ->setCellValue($cell, 'X');
-//   }
-//   $cell='K'.$casilla;
-//   $objPHPExcel->setActiveSheetIndex($sheetIndex)
-//               ->setCellValue($cell, $var[$i]['impacto']);
-//   $cell='L'.$casilla;
-//   $objPHPExcel->setActiveSheetIndex($sheetIndex)
-//               ->setCellValue($cell, $var[$i]['receptor']);
-//   $cell='N'.$casilla;
-//   $objPHPExcel->setActiveSheetIndex($sheetIndex)
-//               ->setCellValue($cell, $var[$i]['frecuencia']);
-//   $cell='O'.$casilla;
-//   $objPHPExcel->setActiveSheetIndex($sheetIndex)
-//               ->setCellValue($cell, $var[$i]['severidad']);
-//   $cell='P'.$casilla;
-//   $objPHPExcel->setActiveSheetIndex($sheetIndex)
-//               ->setCellValue($cell, $var[$i]['alcance']);
-//   $cell='Q'.$casilla;
-//   $objPHPExcel->setActiveSheetIndex($sheetIndex)
-//               ->setCellValue($cell, $var[$i]['crit_impacto_ambiental']);
-//   $cell='R'.$casilla;
-//   $objPHPExcel->setActiveSheetIndex($sheetIndex)
-//               ->setCellValue($cell, $var[$i]['existencia']);
-//   $cell='S'.$casilla;
-//   $objPHPExcel->setActiveSheetIndex($sheetIndex)
-//               ->setCellValue($cell, $var[$i]['cumplimiento']);
-//   $cell='T'.$casilla;
-//   $objPHPExcel->setActiveSheetIndex($sheetIndex)
-//               ->setCellValue($cell, $var[$i]['cltotal']);
-//   $cell='U'.$casilla;
-//   $objPHPExcel->setActiveSheetIndex($sheetIndex)
-//               ->setCellValue($cell, $var[$i]['existencia']);
-//   $cell='V'.$casilla;
-//   $objPHPExcel->setActiveSheetIndex($sheetIndex)
-//               ->setCellValue($cell, $var[$i]['gestion']);
-//   $cell='W'.$casilla;
-//   $objPHPExcel->setActiveSheetIndex($sheetIndex)
-//               ->setCellValue($cell, $var[$i]['partes_interesadas']);
-//   $cell='X'.$casilla;
-//   $objPHPExcel->setActiveSheetIndex($sheetIndex)
-//               ->setCellValue($cell, $var[$i]['ei_res_evaluacion']);
-//   $cell='Y'.$casilla;
-//   $objPHPExcel->setActiveSheetIndex($sheetIndex)
-//               ->setCellValue($cell, $var[$i]['significacion']);
-//   $cell='Z'.$casilla;
-//   $objPHPExcel->setActiveSheetIndex($sheetIndex)
-//               ->setCellValue($cell, $var[$i]['opciones_tec']);
-//   $cell='AA'.$casilla;
-//   $objPHPExcel->setActiveSheetIndex($sheetIndex)
-//               ->setCellValue($cell, $var[$i]['opciones_econ']);
-//   $cell='AC'.$casilla;
-//   $objPHPExcel->setActiveSheetIndex($sheetIndex)
-//               ->setCellValue($cell, $var[$i]['observaciones']);
-// }
-
-
-
-// $objWriter = new PHPExcel_Writer_Excel2007($objPHPExcel);
-// $objWriter->save(str_replace('.php', '.xlsx', __FILE__));
 
 $objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel5');
 $objWriter->save('php://output');
