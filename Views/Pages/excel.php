@@ -110,7 +110,7 @@ $consulta = "select ID_arribo,Fecha_arribo,Observaciones,Diferencias_calado,Cala
   $pag= ceil($tam);
   $objPHPExcel->setActiveSheetIndex($sheetIndex)
               ->setCellValue('L3', 'Pagina 1 de 1');
-  $arr = array();
+  $arr = array(0,0,0,0,0);
   if ($pag>1) {
     
     $objPHPExcel->setActiveSheetIndex($sheetIndex)
@@ -139,11 +139,11 @@ $resultado4 = $conexion->query($consulta4);
 //   $rows = mysql_num_rows($resultado4);
 while (mysqli_fetch_array($resultado4)) { 
     $row4=mysqli_fetch_array($resultado4);
-    $arr['Actividad']+=$resultado4['Actividad'];
-    $arr['Salinidad']+=$resultado4['Salinidad'];
-    $arr['Temperatura']+=$resultado4['Temperatura'];
-    $arr['Conductividad']+=$resultado4['Conductividad'];
-    $arr['PH']+=$resultado4['PH'];
+    $arr[0]+=$resultado4['Actividad'];
+    $arr[1]+=$resultado4['Salinidad'];
+    $arr[2]+=$resultado4['Temperatura'];
+    $arr[3]+=$resultado4['Conductividad'];
+    $arr[4]+=$resultado4['PH'];
     if ($cont-3==0) {
       $paginado++;
       $cont=0;
