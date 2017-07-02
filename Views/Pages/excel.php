@@ -158,8 +158,8 @@ for ($j=0; $j < $i; $j++) {
 
 
 
-$objPHPExcel->setActiveSheetIndex($sheetIndex)
-              ->setCellValue('L1', $resultado[0]['ID_agencias']);
+// $objPHPExcel->setActiveSheetIndex($sheetIndex)
+//               ->setCellValue('L1', $resultado[0]['ID_agencias']);
 // $objPHPExcel->setActiveSheetIndex($sheetIndex)
 //               ->setCellValue('L13', $var[0]['subproceso']);
 // $objPHPExcel->setActiveSheetIndex($sheetIndex)
