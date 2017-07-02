@@ -124,7 +124,7 @@
 						$hash = $row[2];
 
 						if (password_verify($p, $hash)) {
-							$consulta2 = "SELECT Username,Correo,Privilegio FROM usuario WHERE Username='$u'";
+							$consulta2 = "SELECT Username,Correo,Privilegio,Nombre FROM usuario WHERE Username='$u'";
 							$resultado1 = $conexion->query($consulta2);
 							$fila = mysqli_fetch_array($resultado1);
 
@@ -150,7 +150,7 @@
 					<div id="userbox" class="userbox">
 						<a href="#" data-toggle="dropdown">
 							<div class="profile-info">
-								<span class="name"><?php echo $fila[0]; ?></span>
+								<span class="name"><?php echo $fila[3]; ?></span>
 								<span class='role'><?php echo $fila[1]; ?></span>
 								<span class="permiso"><?php echo $fila[2]; ?></span>
 							</div>

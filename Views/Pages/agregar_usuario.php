@@ -8,6 +8,12 @@
                      <div class="panel-body">
                         <div class="form-group">
                            <div class="col-md-3">
+                              <label class="control-label" style="text-align: left;"><strong>Nombre:</strong></label>
+                              <input type="text" class="form-control" name="Nombre" id="Nombre"  placeholder="Nombre" ng-model="data.Nombre">
+                           </div>
+                        </div>
+                        <div class="form-group">
+                           <div class="col-md-3">
                               <label class="control-label" style="text-align: left;"><strong>Nombre de usuario:</strong></label>
                               <input type="text" class="form-control" name="Username" id="Username"  placeholder="Nombre de usuario" ng-model="data.Username">
                            </div>

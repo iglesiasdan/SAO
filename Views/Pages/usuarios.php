@@ -11,6 +11,7 @@
                          <thead>
                             <tr>
                               <th  style="text-align: center;" class="hidden">ID</th>
+                              <th  style="text-align: center;">Nombre</th>
                                <th style="text-align: center;">Nombre de Usuario</th>
                                <th style="text-align: center;">Correo Electrónico</th>
                                <th style="text-align: center;">Acciones</th>
@@ -19,6 +20,7 @@
                          <tbody>
                             <tr ng-repeat="post in posts" class="gradeX">
                                <td class="hidden">{{post.ID_usuario}}</td>
+                               <td>{{post.Nombre}}</td>
                                <td>{{post.Username}}</td>
                                <td>{{post.Correo}}</td>
                                <td class="actions" style="text-align: center;">

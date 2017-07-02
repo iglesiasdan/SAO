@@ -1,15 +1,24 @@
 myApp.controller('estadisticasController', ['$scope', '$http', 'urlbase', '$stateParams', '$window', '$rootScope', function($scope, $http, urlbase, $stateParams, $window, $rootScope) {
 
     var puertos = [];
-    var estadisticas_puerto=[];
+    var buques = [];
     var estadisticas_salinidad=[];
     var estadisticas_temperatura=[];
     var estadisticas_conductividad=[];
     var estadisticas_ph=[];
+    var estadisticas=[];
     var cont=0;
 
-     $("#graficas").hide();
+    $("#graficas").hide();
+    $("#graficas2").hide();
+    $("#btn_consultar").hide();
+    $(".bloquear").hide();
+
     $('#optionsRadios1').click(function() {
+        $("#graficas2").hide();
+        $(".bloquear").attr('disabled',true);
+        $(".bloquear").hide();
+        $("#btn_consultar").hide();
       cont++;
       var checked = $(this).attr('checked', true);
       if(checked){
@@ -41,13 +50,13 @@ myApp.controller('estadisticasController', ['$scope', '$http', 'urlbase', '$stat
                                             $scope.ph = databuques.data[i].ph;
                                             if (($.isNumeric($scope.salinidad)) && (cont===1)) {
                                               console.log($.isNumeric($scope.salinidad));
-                                            estadisticas_puerto.push($scope.puerto);
+                                            estadisticas.push($scope.puerto);
                                             estadisticas_salinidad.push($scope.salinidad);
                                             estadisticas_temperatura.push($scope.temperatura);
                                             estadisticas_conductividad.push($scope.conductividad);
                                             estadisticas_ph.push($scope.ph);
                                           }
-                                              $rootScope.estadisticas_puerto=estadisticas_puerto;
+                                              $rootScope.estadisticas=estadisticas;
                                               $rootScope.estadisticas_salinidad=estadisticas_salinidad;
                                               $rootScope.estadisticas_temperatura=estadisticas_temperatura;
                                               $rootScope.estadisticas_conductividad=estadisticas_conductividad;
@@ -65,6 +74,87 @@ myApp.controller('estadisticasController', ['$scope', '$http', 'urlbase', '$stat
         //fin de httprequest
       }
     });
+
+//##################### INICIO TODOS LOS BUQUES ##############
+
+ $('#optionsRadios2').click(function() {
+    $("#graficas").hide();
+    $(".bloquear").attr('disabled',true);
+    $(".bloquear").hide();
+    $("#btn_consultar").hide();
+         cont++;
+      var checked = $(this).attr('checked', true);
+      if(checked){
+        console.log("checked");
+        $http({
+            method: 'GET',
+            url: urlbase + 'arribos/'
+        }).then(function successCallback(databuque) {
+            for (var i = 0; i < databuque.data.length; i++) {
+                //console.log('Data estadisticas:'+datapuerto.data.length);
+                $scope.buques = databuque.data[i].ID_buque;
+                buques.push($scope.buques);
+            }
+            //console.log(buques);
+            for (var j =0; j < databuque.data.length; j++) {
+
+                $http({
+                    method: 'GET',
+                    url: urlbase + 'estadisticas/estabuques/'+buques[j]
+                }).then(function successCallback(databuques) {
+                    for (var i = 0; i < databuques.data.length; i++) {
+                        //console.log('Data estadisticas:'+datapuerto.data.length);
+                        $scope.buque = databuques.data[i].Nombre_buque;
+                        $scope.salinidad = databuques.data[i].salinidad;
+                        $scope.temperatura = databuques.data[i].temperatura;
+                        $scope.conductividad = databuques.data[i].conductividad;
+                        $scope.ph = databuques.data[i].ph;
+                        /*console.log('Nombre_buque= '+$scope.buque);
+                        console.log('salinidad= '+$scope.salinidad);
+                        console.log('temperatura= '+$scope.temperatura);
+                        console.log('conductividad= '+$scope.conductividad);
+                        console.log('ph= '+$scope.ph);*/
+
+                         if (($.isNumeric($scope.salinidad)) && (cont===1)) {
+                            //console.log($.isNumeric($scope.salinidad));
+                            estadisticas.push($scope.buque);
+                            estadisticas_salinidad.push($scope.salinidad);
+                            estadisticas_temperatura.push($scope.temperatura);
+                            estadisticas_conductividad.push($scope.conductividad);
+                            estadisticas_ph.push($scope.ph);
+                        }
+                        $rootScope.estadisticas=estadisticas;
+                        $rootScope.estadisticas_salinidad=estadisticas_salinidad;
+                        $rootScope.estadisticas_temperatura=estadisticas_temperatura;
+                        $rootScope.estadisticas_conductividad=estadisticas_conductividad;
+                        $rootScope.estadisticas_ph=estadisticas_ph;
+
+
+
+
+                                        }
+
+                    $("#graficas2").show();
+                })
+            }
+        })
+        //fin de httprequest
+      }
+    });
+
+//##################### FIN TDOOS LOS BUQUES ##################
+$('#optionsRadios3').click(function() {
+    $("#graficas").hide();
+    $("#graficas2").hide();
+    $(".bloquear").attr('disabled',false);
+    $("#btn_consultar").show();
+    $(".bloquear").show();
+  
+});
+
+$('#btn_reiniciar').click(function() {
+  location.reload();
+});
 
 
 
@@ -98,11 +188,11 @@ $http({
 });
 //Puertos --------------------------------------------------------------------------------------------
 
-   $rootScope.$watch('estadisticas_puerto', function() {
-        $scope.estadisticas_puerto=$rootScope.estadisticas_puerto;
+   $rootScope.$watch('estadisticas', function() {
+        $scope.estadisticas=$rootScope.estadisticas;
         //console.log('Puertos:');
         //console.log($scope.estadisticas_puerto);
-        $scope.labels = $scope.estadisticas_puerto;
+        $scope.labels = $scope.estadisticas;
     })
 
 
@@ -174,128 +264,3 @@ $http({
 }]);
 
 
-
-
-    /*//Obtener la lista de todos los puertos.
-    var puertos = [];
-    $http({
-        method: 'GET',
-        url: urlbase + 'puertos/'
-    }).then(function successCallback(datapuerto) {
-        for (var i = 0; i < datapuerto.data.length; i++) {
-            //console.log('Data estadisticas:'+datapuerto.data.length);
-            $scope.puertos = datapuerto.data[i].Nombre_puerto;
-            puertos.push($scope.puertos);
-            //Obtener la lista de todos los arribos de un buque en un puerto determinado.
-            $http({
-                method: 'GET',
-                url: urlbase + 'estadisticas/' + datapuerto.data[i].ID_puerto
-            }).then(function successCallback(dataestadisticas) {
-                for (var j = 0; j < dataestadisticas.data.length; j++) {
-
-                    //console.log('Data estadisticas:'+dataestadisticas.data.length);
-                    $scope.estudio = dataestadisticas.data[j].ID_estudio;
-                    $scope.buque = dataestadisticas.data[j].ID_buque;
-                    $scope.arribos = dataestadisticas.data[j].ID_arribo;
-                    $scope.puerto_arribo = dataestadisticas.data[j].ID_puerto;
-                    var arreglo={};
-                    arreglo[j]=$scope.estudio;
-                    $rootScope.arreglo=arreglo;
-                    console.log('Arribo: ' + $scope.arribos + ' Buque: ' + $scope.buque + ' Estudio: ' + $scope.estudio + ' Puerto: '+ $scope.puerto_arribo);
-
-                    $http({
-                        method: 'GET',
-                        url: urlbase + 'buques/' + $scope.estudio
-                    }).then(function successCallback(response) {
-                        $scope.posts = response.data[0];
-                        $rootScope.selectedBuque = response.data[0];
-
-                        // console.log("buque  ");
-                        // console.log(response.data[0]);
-                        //----------------------consulta de buque------------
-                        $http({
-                            method: 'GET',
-                            url: urlbase + 'arribos/' + $scope.buque
-                        }).then(function successCallback(response) {
-                            $scope.posts1 = response.data[0];
-                            response.data.Fecha = new Date(response.data.Fecha_arribo);
-                            $rootScope.post1 = response.data;
-                            $rootScope.selectedPuerto = response.data;
-                            $rootScope.selectedAgencia = response.data;
-                            //---------------estudios del arribo----------------------------
-                            $http({
-                                method: 'GET',
-                                url: urlbase + 'estudios/arribo/' + $scope.arribos
-                            }).then(function successCallback(response) {
-                                $scope.posts2 = response.data[0];
-                                // console.log("estudio  ");
-                                // console.log(response.data[0]);
-                                $rootScope.selectedtanque = "";
-                                // response.data.id_estudio.push(0);
-                                // response.data.N_tanque.push('Seleccionar No. Tanque');
-                                var acumAct = null;
-                                var acumSal = null;
-                                var acumTem = null;
-                                var acumCond = null;
-                                var acumPh = null;
-                                for (var i = 0; i < response.data.length; i++) {
-                                    acumAct += parseInt(response.data[i].Actividad);
-                                    acumSal += parseInt(response.data[i].Salinidad);
-                                    acumTem += parseInt(response.data[i].Temperatura);
-                                    acumCond += parseInt(response.data[i].Conductividad);
-                                    acumPh += parseInt(response.data[i].Ph);
-                                }
-                                acumAct /= response.data.length;
-                                acumSal /= response.data.length;
-                                acumTem /= response.data.length;
-                                acumCond /= response.data.length;
-                                acumPh /= response.data.length;
-
-
-                                var promedios = {};
-
-                                promedios.acti = acumAct;
-                                promedios.sal = acumSal;
-                                promedios.tem = acumTem;
-                                promedios.con = acumCond;
-                                promedios.ph = acumPh;
-                                promedios.buque=$scope.buque;
-                                promedios.puerto=$scope.puerto_arribo;
-                                promedios.arribos=$scope.arribos;
-                                promedios.estudio=$scope.estudio;
-
-                                $rootScope.prom=promedios;
-
-                            }, function errorCallback(response) {
-                                //console.log(response.statusText);
-                                // called asynchronously if an error occurs
-                                // or server returns response with an error status.
-                            });
-
-
-                        });
-                    });
-
-                }
-            })
-
-
-        }
-    })
-
-
-
-    $rootScope.$watch('prom', function() {
-
-        console.log(JSON.stringify($rootScope.prom));
-
-          //$scope.prom=$rootScope.prom;
-                    })
-
-    $rootScope.$watch('arreglo', function() {
-
-        console.log('arreglo: '+JSON.stringify($rootScope.arreglo));
-          //$scope.prom=$rootScope.prom;
-                    })
-
-*/
