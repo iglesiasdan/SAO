@@ -67,7 +67,7 @@ myApp.controller('buqueController',['$scope','$http','urlbase','$stateParams','$
 
 
 
-console.log($stateParams.id_estudio);
+
 // $http({
 //   method: 'GET',
 
@@ -90,6 +90,20 @@ console.log($stateParams.id_estudio);
         $rootScope.selectedBuque = response.data;
         $rootScope.selectedPuerto = response.data;
         $rootScope.selectedAgencia = response.data;
+        //---------------datos del buque del arribo---------------------
+        $http({
+        method: 'GET',
+
+        url: urlbase+'buques/'+$rootScope.selectedBuque.ID_buque
+        }).then(function successCallback(response) {
+          $scope.posts = response.data[0];
+          $rootScope.selectedBuque = response.data[0];
+         }, function errorCallback(response) {
+            console.log(response.statusText);
+            // called asynchronously if an error occurs
+            // or server returns response with an error status.
+        });
+        
         //---------------estudios del arribo----------------------------
         $http({
           method: 'GET',
@@ -217,11 +231,7 @@ console.log($stateParams.id_estudio);
 
 
 
-//   }, function errorCallback(response) {
-//     console.log(response.statusText);
-//     // called asynchronously if an error occurs
-//     // or server returns response with an error status.
-// });
+//  
 }
   $scope.submit2 = function(){
     //alert('hola');
