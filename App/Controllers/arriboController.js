@@ -7,6 +7,7 @@ myApp.controller('arriboController',['$scope','$http','urlbase', function($scope
     url: urlbase
   }).then(function successCallback(response) {
       $scope.posts = response.data;
+      console.log($scope.posts);
     }, function errorCallback(response) {
       console.log(response.statusText);
       // called asynchronously if an error occurs
