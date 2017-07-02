@@ -155,19 +155,19 @@ while ($row4=mysqli_fetch_array($resultado4)) {
               ->setCellValue('L3', 'Pagina '.$paginado.' de '.$pag);
     }
     $objPHPExcel->setActiveSheetIndex($sheetIndex)
-              ->setCellValue($col.'28', $row4['N_tanque']);
+              ->setCellValue($col[$cont].'28', $row4['N_tanque']);
     $objPHPExcel->setActiveSheetIndex($sheetIndex)
-              ->setCellValue($col.'29', $row4['Actividad']);
+              ->setCellValue($col[$cont].'29', $row4['Actividad']);
     $objPHPExcel->setActiveSheetIndex($sheetIndex)
-              ->setCellValue($col.'30', $row4['Salinidad']);
+              ->setCellValue($col[$cont].'30', $row4['Salinidad']);
     $objPHPExcel->setActiveSheetIndex($sheetIndex)
-              ->setCellValue($col.'31', $row4['Temperatura']);  
+              ->setCellValue($col[$cont].'31', $row4['Temperatura']);  
     $objPHPExcel->setActiveSheetIndex($sheetIndex)
-              ->setCellValue($col.'32', $row4['Conductividad']);
+              ->setCellValue($col[$cont].'32', $row4['Conductividad']);
     $objPHPExcel->setActiveSheetIndex($sheetIndex)
-              ->setCellValue($col.'33', $row4['Ph']);
+              ->setCellValue($col[$cont].'33', $row4['Ph']);
     $objPHPExcel->setActiveSheetIndex($sheetIndex)
-              ->setCellValue($col.'34', $row4['Volumen']); 
+              ->setCellValue($col[$cont].'34', $row4['Volumen']); 
     $cont++;
 }
 
