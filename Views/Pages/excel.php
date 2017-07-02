@@ -142,7 +142,7 @@ while ($row4=mysqli_fetch_array($resultado4)) {
     $arr[1]+=$row4['Salinidad'];
     $arr[2]+=$row4['Temperatura'];
     $arr[3]+=$row4['Conductividad'];
-    $arr[4]+=$row4['PH'];
+    $arr[4]+=$row4['Ph'];
     if ($cont-3==0) {
       $paginado++;
       $cont=0;
