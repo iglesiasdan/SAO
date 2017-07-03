@@ -64,7 +64,7 @@
 									<!--<a href="recuperar_contrasena.php" class="pull-right" style="color:#94d500">¿Olvido su contraseña?</a> -->
 								</div>
 								<div class="input-group input-group-icon">
-									<input name="contrasena" id="contrasena" type="text" class="form-control input-lg" autocomplete="off" />
+									<input name="contrasena" id="contrasena" type="password" class="form-control input-lg" autocomplete="off" required/>
 									<span class="input-group-addon">
 										<span class="icon icon-lg">
 											<i class="fa fa-lock"></i>
