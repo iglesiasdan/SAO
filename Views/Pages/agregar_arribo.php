@@ -47,10 +47,12 @@
 
                      </div>
                      </br>
-                     <div class="form-group" ng-form name="myForm">
-                        <input name="myInput" type="text" class="form-control" ng-model="bindTo" ng-maxlength="5">
-                        <span class="error" ng-show="myForm.myInput.$error.maxlength">Too long!</span>
-                    </div>
+                    <ng-form id="test" name="test" >
+      <div ng-class="{'has-error': test.$invalid}" class="form-group" >
+         <input id="field" name="field" required class="form-control" ng-model="field" type="text"/>
+         <div class="help-block error" ng-show="test.field.$error.required">Required</div>
+      </div>
+    </ng-form>
                      <div class="form-group">
                         <div class="col-md-6">
                            <label class="control-label" style="text-align: left;"><strong>Fecha de Arribo:</strong></label>
