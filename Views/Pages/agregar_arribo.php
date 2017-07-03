@@ -97,8 +97,5 @@
                                     </div>
                   </div>
 </ng-form>
-<div ng-class="{'has-error': Form.$invalid}" class="form-group" >
-         <input id="field" name="field" required class="form-control" ng-model="field" type="text"/>
-         <div class="help-block error" ng-show="Form.field.$error.required">Campo Requerido.!</div>
-      </div>
+
     
