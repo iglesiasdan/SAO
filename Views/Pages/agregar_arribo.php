@@ -12,7 +12,7 @@
                   <div class="panel-body">
                      <div class="form-group">
                         <div class="col-md-6">
-                           <div ng-class="{'has-error': Form.$invalid}" class="col-md-12">
+                           <div ng-class="{ 'has-error' : Form.name.$invalid && !Form.name.$pristine }" class="col-md-12">
                               <label class="control-label" style="text-align: left;"><strong>Buque:</strong></label>
                               <select id="buque" name="buque" class="form-control mb-md" required ng-value="prueba"  ng-model="selectedBuque" ng-options="post.Nombre_buque for post in posts3 track by post.ID_buque">
                                  <option value="" disabled selected>Seleccionar Buque</option>
@@ -20,7 +20,7 @@
                                  <option value='2'>Buque 2</option>
                                  <option value='3'>Buque 3</option>
                               </select>
-                               <div class="help-block error" ng-show="Form.field.$error.required">Campo Requerido.!</div>
+                               <p ng-show="Form.name.$invalid && !Form.name.$pristine" class="help-block">Selecione un Buque.</p>
                            </div>
                            <div ng-class="{'has-error': Form.$invalid}" class="col-md-12">
                               <label class="control-label" style="text-align: left;"><strong>Puerto:</strong></label>
