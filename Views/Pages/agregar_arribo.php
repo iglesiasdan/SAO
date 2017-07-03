@@ -87,7 +87,7 @@
                                              </div>
                                              <div class="form-group">
                                                 <div class="col-md-4 pull-right">
-                                                   <button id="estudiocompleto" ng-click="submit2()" class="mb-xs mt-xs mr-xs btn btn-primary btn-block"><span>{{$error.required ? 'Modificar Arribo' : 'Guardar Arribo'}}</span></button>
+                                                   <button id="estudiocompleto" ng-click="submit2()" ng-disabled="test.$invalid" class="mb-xs mt-xs mr-xs btn btn-primary btn-block"><span>Guardar Arribo</span></button>
                                                 </div>
                                              </div>
                                           </div>
