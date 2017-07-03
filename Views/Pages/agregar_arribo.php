@@ -47,6 +47,10 @@
 
                      </div>
                      </br>
+                     <div class="form-group" ng-form name="myForm">
+                        <input name="myInput" type="text" class="form-control" ng-model="bindTo" ng-maxlength="5">
+                        <span class="error" ng-show="myForm.myInput.$error.maxlength">Too long!</span>
+                    </div>
                      <div class="form-group">
                         <div class="col-md-6">
                            <label class="control-label" style="text-align: left;"><strong>Fecha de Arribo:</strong></label>
