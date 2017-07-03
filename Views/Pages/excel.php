@@ -152,7 +152,7 @@ while ($row4=mysqli_fetch_array($resultado4)) {
       $objPHPExcel->addSheet($objWorkSheet1);
       $sheetIndex = $objPHPExcel->getIndex($objPHPExcel-> getSheetByName('Reporte'.$paginado)); 
       $objPHPExcel->setActiveSheetIndex($sheetIndex)
-              ->setCellValue('L3', 'Pagina '.$paginado++.' de '.$pag);
+              ->setCellValue('L3', 'Pagina '.$paginado+1.' de '.$pag);
               $objPHPExcel->setActiveSheetIndex($sheetIndex)
                         ->setCellValue('D28', '');
               $objPHPExcel->setActiveSheetIndex($sheetIndex)
@@ -240,9 +240,9 @@ while ($row4=mysqli_fetch_array($resultado4)) {
     $objPHPExcel->setActiveSheetIndex($sheetIndex)
               ->setCellValue('K33', $arr[4]);
    }else {
-    for ($i=1; $i < $paginado++ ; $i++) { 
+    for ($i=1; $i < $paginado+1 ; $i++) { 
       
-      $sheetIndex = $objPHPExcel->getIndex($objPHPExcel-> getSheetByName('Reporte'));
+      $sheetIndex = $objPHPExcel->getIndex($objPHPExcel-> getSheetByName('Reporte'.$paginado));
       $objPHPExcel->setActiveSheetIndex($sheetIndex)
               ->setCellValue('K29', $arr[0]);
       $objPHPExcel->setActiveSheetIndex($sheetIndex)
