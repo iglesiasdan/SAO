@@ -54,7 +54,7 @@
                         </div>
                         <div class="col-md-6">
                            <label class="control-label" style="text-align: left;"><strong>Calado de Proa:</strong></label>
-                           <input type="number" class="form-control" name="calado_proa" id="calado_proa" placeholder="Calado de Proa" ng-model="posts1.Calado_proa" required>
+                           <input type="number" class="form-control" name="calado_proa" id="calado_proa" placeholder="Calado de Proa" ng-model="posts1.Calado_proa" ngRequired>
                         </div>
                         <div class="col-md-6">
                            <label class="control-label" style="text-align: left;"><strong>Calado de Popa:</strong></label>

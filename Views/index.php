@@ -41,7 +41,7 @@
 
 		<!-- Theme Custom CSS -->
 		<link rel="stylesheet" href="../assets/stylesheets/theme-custom.css">
-		<script src="assets/vendor/modernizr/modernizr.js"></script>
+		<script src="../assets/vendor/modernizr/modernizr.js"></script>
 
 		<!-- Head Libs -->
 		<script src="../assets/vendor/jquery/jquery.js"></script>
