@@ -104,9 +104,9 @@ $consulta = "select ID_arribo,Fecha_arribo,Observaciones,Diferencias_calado,Cala
   $resultado3= $conexion->query($consulta3);
   $data=mysqli_fetch_array($resultado3);
   // echo "size";
-  $i=$data[0];
+  $size=$data[0];
   // echo $i;
-  $tam = $i/4;
+  $tam = $size/4;
   $pag= ceil($tam);
   $objPHPExcel->setActiveSheetIndex($sheetIndex)
               ->setCellValue('L3', 'Pagina 1 de 1');
@@ -228,7 +228,11 @@ while ($row4=mysqli_fetch_array($resultado4)) {
               ->setCellValue($col[$cont].'34', $row4['Volumen']); 
     $cont++;
 }
-
+    $arr[0]/=$size;
+    $arr[1]/=$size;
+    $arr[2]/=$size;
+    $arr[3]/=$size;
+    $arr[4]/=$size;
     
    if ($paginado == 0) {
     $objPHPExcel->setActiveSheetIndex($sheetIndex)
