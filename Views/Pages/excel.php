@@ -262,11 +262,12 @@ while ($row4=mysqli_fetch_array($resultado4)) {
                 ->setCellValue('K32', $arr[3]);
       $objPHPExcel->setActiveSheetIndex($sheetIndex)
                 ->setCellValue('K33', $arr[4]);
-      $objPHPExcel->setActiveSheetIndex($sheetIndex)
-                ->setCellValue('H35', $paginado);
     }
    }
 
+
+$objPHPExcel->setActiveSheetIndex($sheetIndex)
+                ->setCellValue('E36', $row['Observaciones']);
 
 $objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel5');
 $objWriter->save('php://output');
