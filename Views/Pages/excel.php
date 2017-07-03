@@ -134,6 +134,7 @@ $objPHPExcel->setActiveSheetIndex($sheetIndex)
 $col = array('D','F','H','J','K');
 $cont=0;
 $paginado=0;
+$pagr=1;
 $consulta4="SELECT * FROM estudio WHERE ID_arribo=$id_arribo ORDER BY ID_estudio";
 $resultado4 = $conexion->query($consulta4);
 //   $rows = mysql_num_rows($resultado4);
@@ -145,6 +146,7 @@ while ($row4=mysqli_fetch_array($resultado4)) {
     $arr[4]+=$row4['Ph'];
     if ($cont-4==0) {
       $paginado++;
+      $pagr++;
       $cont=0;
       $objWorkSheetBase = $objPHPExcel->getSheet($sheetIndex);
       $objWorkSheet1 = clone $objWorkSheetBase;
@@ -152,7 +154,7 @@ while ($row4=mysqli_fetch_array($resultado4)) {
       $objPHPExcel->addSheet($objWorkSheet1);
       $sheetIndex = $objPHPExcel->getIndex($objPHPExcel-> getSheetByName('Reporte'.$paginado)); 
       $objPHPExcel->setActiveSheetIndex($sheetIndex)
-              ->setCellValue('L3', 'Pagina '.$paginado+1.' de '.$pag);
+              ->setCellValue('L3', 'Pagina '.$pagr.' de '.$pag);
               $objPHPExcel->setActiveSheetIndex($sheetIndex)
                         ->setCellValue('D28', '');
               $objPHPExcel->setActiveSheetIndex($sheetIndex)
@@ -240,7 +242,7 @@ while ($row4=mysqli_fetch_array($resultado4)) {
     $objPHPExcel->setActiveSheetIndex($sheetIndex)
               ->setCellValue('K33', $arr[4]);
    }else {
-    for ($i=1; $i < $paginado+1 ; $i++) { 
+    for ($i=1; $i < $pagr ; $i++) { 
       
       $sheetIndex = $objPHPExcel->getIndex($objPHPExcel-> getSheetByName('Reporte'.$paginado));
       $objPHPExcel->setActiveSheetIndex($sheetIndex)
