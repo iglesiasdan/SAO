@@ -65,12 +65,12 @@
                         <div ng-class="{ 'has-error' : Form.calado_popa.$invalid && !Form.calado_popa.$pristine }" class="col-md-6">
                            <label class="control-label" style="text-align: left;"><strong>*Calado de Popa:</strong></label>
                            <input type="text" class="form-control" name="calado_popa" id="calado_popa" placeholder="Calado de Popa" ng-model="posts1.Calado_popa" required>
-                           <p ng-show="Form.calado_popa.$invalid && !Form.calado_popa.$pristine" class="help-block">Ingrese Calado de Proa.</p>
+                           <p ng-show="Form.calado_popa.$invalid && !Form.calado_popa.$pristine" class="help-block">Ingrese Calado de Popa.</p>
                         </div>
-                        <div  class="col-md-6">
+                        <div ng-class="{ 'has-error' : Form.diferencia_calado.$invalid && !Form.diferencia_calado.$pristine }"  class="col-md-6">
                            <label class="control-label" style="text-align: left;"><strong>*Diferencia de Calado:</strong></label>
                            <input type="text" class="form-control" name="diferencia_calado" id="diferencia_calado" placeholder="Diferencia de Calado" value="{{posts1.Calado_proa+posts1_Calado_popa}}" ng-model="posts1.Diferencias_calado" disabled required>
-                            
+                           <p ng-show="Form.diferencia_calado.$invalid && !Form.diferencia_calado.$pristine" class="help-block">Ingrese la Diferencia de Calado.</p>
                         </div>
                   </div>
                   </div>
@@ -97,5 +97,6 @@
                                     </div>
                   </div>
 </ng-form>
+<p>Los Campos que Poseen '*' Son Requeridos.</p>
 
     
