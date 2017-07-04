@@ -186,22 +186,30 @@
                                     <div class="form-group">
                                         <div class="col-sm-6">
                                         <label class="control-label" style="text-align: left;"><strong>Salinidad:</strong></label>
-                                        <input type="number" class="form-control" name="detalle_salinidad" id="detalle_salinidad" placeholder="Salinidad del tanques" ng-model="selectedtanque.Salinidad" >
+                                        <input min="5" max="20" type="number" class="form-control" name="detalle_salinidad" id="detalle_salinidad" placeholder="Salinidad del tanques" ng-model="selectedtanque.Salinidad" >
+                                        <p ng-show="Form.detalle_salinidad.$error.minlength" class="help-block">Valor de Salinidad muy Bajo.</p>
+                                        <p ng-show="Form.detalle_salinidad.$error.maxlength" class="help-block">Valor de Salinidad muy Alto.</p>
                                         </div>
                                     <div class="col-sm-6">
                                         <label class="control-label" style="text-align: left;"><strong>Temperatura (�C):</strong></label>
-                                        <input type="number" class="form-control" name="detalle_temperatura" id="detalle_temperatura" placeholder="Temperatura del tanques" ng-model="selectedtanque.Temperatura" >
+                                        <input min="26" max="32" type="number" class="form-control" name="detalle_temperatura" id="detalle_temperatura" placeholder="Temperatura del tanques" ng-model="selectedtanque.Temperatura" >
+                                        <p ng-show="Form.detalle_temperatura.$error.minlength" class="help-block">Valor de Temperatura muy Bajo.</p>
+                                        <p ng-show="Form.detalle_temperatura.$error.maxlength" class="help-block">Valor de Temperatura muy Alto.</p>
                                         </div>
 
                                     </div>
                                     <div class="form-group">
                                         <div class="col-sm-6">
                                         <label class="control-label" style="text-align: left;"><strong>Conductividad (�S):</strong></label>
-                                        <input type="number" class="form-control" name="detalle_conductividad" id="detalle_conductividad" placeholder="Conductividad del tanques" ng-model="selectedtanque.Conductividad">
+                                        <input min="20" max="40" type="number" class="form-control" name="detalle_conductividad" id="detalle_conductividad" placeholder="Conductividad del tanques" ng-model="selectedtanque.Conductividad">
+                                        <p ng-show="Form.detalle_conductividad.$error.minlength" class="help-block">Valor de Conductividad muy Bajo.</p>
+                                        <p ng-show="Form.detalle_conductividad.$error.maxlength" class="help-block">Valor de Conductividad muy Alto.</p>
                                         </div>
                                     <div class="col-sm-6">
                                         <label class="control-label" style="text-align: left;"><strong>PH:</strong></label>
-                                        <input type="number" class="form-control" name="detalle_ph" id="detalle_ph" placeholder="PH del tanques" ng-model="selectedtanque.Ph" >
+                                        <input min="6" max="9" type="number" class="form-control" name="detalle_ph" id="detalle_ph" placeholder="PH del tanques" ng-model="selectedtanque.Ph" >
+                                        <p ng-show="Form.detalle_ph.$error.minlength" class="help-block">Valor de PH muy Bajo.</p>
+                                        <p ng-show="Form.detalle_ph.$error.maxlength" class="help-block">Valor de PH muy Alto.</p>
                                         </div>
                                     </div>
                                     <div class="form-group">
