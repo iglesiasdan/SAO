@@ -12,35 +12,35 @@
                   <div class="panel-body">
                      <div class="form-group">
                         <div class="col-md-6">
-                           <div ng-class="{ 'has-error' : Form.buque.$invalid && !Form.buque.$pristine }" class="col-md-12">
-                              <label class="control-label" style="text-align: left;"><strong>Buque:</strong></label>
+                           <div class="col-md-12">
+                              <label class="control-label" style="text-align: left;"><strong>*Buque:</strong></label>
                               <select id="buque" name="buque" class="form-control mb-md" required ng-value="prueba"  ng-model="selectedBuque" ng-options="post.Nombre_buque for post in posts3 track by post.ID_buque">
                                  <option value="" disabled selected>Seleccionar Buque</option>
                                  <option value='1'>Buque 1</option>
                                  <option value='2'>Buque 2</option>
                                  <option value='3'>Buque 3</option>
                               </select>
-                               <p ng-show="Form.buque.$invalid && !Form.buque.$pristine" class="help-block">Selecione un Buque.</p>
+                               
                            </div>
-                           <div ng-class="{'has-error': Form.$invalid}" class="col-md-12">
-                              <label class="control-label" style="text-align: left;"><strong>Puerto:</strong></label>
+                           <div class="col-md-12">
+                              <label class="control-label" style="text-align: left;"><strong>*Puerto:</strong></label>
                               <select id="puerto" name="puerto" class="form-control mb-md" required ng-model="selectedPuerto" ng-options="post.Nombre_puerto for post in posts4 track by post.ID_puerto">
                                  <option value="" disabled selected>Seleccionar Puerto</option>
                                  <option value='1'>Puerto 1</option>
                                  <option value='2'>Puerto 2</option>
                                  <option value='3'>Puerto 3</option>
                               </select>
-                               <div class="help-block error" ng-show="Form.field.$error.required">Campo Requerido.!</div>
+                               
                            </div>
-                           <div ng-class="{'has-error': Form.$invalid}" class="col-md-12">
-                              <label class="control-label" style="text-align: left;"><strong>Agencia:</strong></label>
+                           <div class="col-md-12">
+                              <label class="control-label" style="text-align: left;"><strong>*Agencia:</strong></label>
                               <select id="agencia" name="agencia" class="form-control mb-md" required ng-model="selectedAgencia" ng-options="post.Nombre_agencia for post in posts5 track by post.ID_agencia">
                                  <option value="" disabled selected>Seleccionar Agencia</option>
                                  <option value='1'>Puerto 1</option>
                                  <option value='2'>Puerto 2</option>
                                  <option value='3'>Puerto 3</option>
                               </select>
-                               <div class="help-block error" ng-show="Form.field.$error.required">Campo Requerido.!</div>
+                               
                            </div>
                         </div>
                         <div class="col-md-6">
@@ -52,25 +52,25 @@
                      </div>
                      </br>
                      <div class="form-group">
-                        <div ng-class="{'has-error': Form.$invalid}" class="col-md-6">
-                           <label class="control-label" style="text-align: left;"><strong>Fecha de Arribo:</strong></label>
+                        <div ng-class="{ 'has-error' : Form.fecha_arribo.$invalid && !Form.fecha_arribo.$pristine }" class="col-md-6">
+                           <label class="control-label" style="text-align: left;"><strong>*Fecha de Arribo:</strong></label>
                            <input type="date" class="form-control" name="fecha_arribo" id="fecha_arribo" ng-model="posts1.Fecha" required>
-                            <div class="help-block error" ng-show="Form.field.$error.required">Campo Requerido.!</div>
+                           <p ng-show="Form.fecha_arribo.$invalid && !Form.fecha_arribo.$pristine" class="help-block">Ingrese Calado de Proa.</p>
                         </div>
                         <div ng-class="{ 'has-error' : Form.calado_proa.$invalid && !Form.calado_proa.$pristine }" class="col-md-6">
-                           <label class="control-label" style="text-align: left;"><strong>Calado de Proa:</strong></label>
+                           <label class="control-label" style="text-align: left;"><strong>*Calado de Proa:</strong></label>
                            <input type="number" class="form-control" name="calado_proa" id="calado_proa" placeholder="Calado de Proa" ng-model="posts1.Calado_proa" required>
                             <p ng-show="Form.calado_proa.$invalid && !Form.calado_proa.$pristine" class="help-block">Ingrese Calado de Proa.</p>
                         </div>
-                        <div ng-class="{'has-error': Form.$invalid}" class="col-md-6">
-                           <label class="control-label" style="text-align: left;"><strong>Calado de Popa:</strong></label>
+                        <div ng-class="{ 'has-error' : Form.calado_popa.$invalid && !Form.calado_popa.$pristine }" class="col-md-6">
+                           <label class="control-label" style="text-align: left;"><strong>*Calado de Popa:</strong></label>
                            <input type="text" class="form-control" name="calado_popa" id="calado_popa" placeholder="Calado de Popa" ng-model="posts1.Calado_popa" required>
-                            <div class="help-block error" ng-show="Form.field.$error.required">Campo Requerido.!</div>
+                           <p ng-show="Form.calado_popa.$invalid && !Form.calado_popa.$pristine" class="help-block">Ingrese Calado de Proa.</p>
                         </div>
-                        <div ng-class="{'has-error': Form.$invalid}" class="col-md-6">
-                           <label class="control-label" style="text-align: left;"><strong>Diferencia de Calado:</strong></label>
-                           <input type="text" class="form-control" name="diferencia_calado" id="diferencia_calado" placeholder="Diferencia de Calado" ng-model="posts1.Diferencias_calado" required>
-                            <div class="help-block error" ng-show="Form.field.$error.required">Campo Requerido.!</div>
+                        <div  class="col-md-6">
+                           <label class="control-label" style="text-align: left;"><strong>*Diferencia de Calado:</strong></label>
+                           <input type="text" class="form-control" name="diferencia_calado" id="diferencia_calado" placeholder="Diferencia de Calado" value="{posts1.Calado_proa+posts1_Calado_popa}" ng-model="posts1.Diferencias_calado" disabled required>
+                            
                         </div>
                   </div>
                   </div>
