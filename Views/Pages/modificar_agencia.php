@@ -24,7 +24,7 @@
                      <div class="panel-body">
                         <div class="form-group">
                            <div ng-class="{ 'has-error' : Form.nombre_agencia.$invalid && !Form.nombre_agencia.$pristine }" class="col-md-4">
-                              <label class="control-label" style="text-align: left;"><strong>Nombre de Agencia:</strong></label>
+                              <label class="control-label" style="text-align: left;"><strong>*Nombre de Agencia:</strong></label>
                               <input type="text" class="form-control" name="nombre_agencia" id="nombre_agencia" placeholder="Nombre del Puerto" ng-model="posts.Nombre_agencia" required>
                               <p ng-show="Form.nombre_agencia.$invalid && !Form.nombre_agencia.$pristine" class="help-block">Ingrese Nombre de la Agencia.</p>
                            </div>
@@ -40,5 +40,6 @@
                         </div>
                      </div>
                   </ng-form>
+                  <p>Los Campos que Poseen '*' Son Requeridos.</p>
                </section>
             </div
