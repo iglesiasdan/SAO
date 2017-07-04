@@ -157,9 +157,9 @@
                               <header class="panel-heading">
                                  <h2 class="panel-title">Detalles del Tanque</h2>
                               </header>
-                              <ng-form id="Form" name="Form" >
+                              
                                 <div class="panel-body">
-                                    <form class="" ng-submit="submit()" method="post">
+                                    <form class="" ng-submit="submit()" method="post" name="Form">
                                     <div class="form-group">
                                         <div ng-class="{ 'has-error' : Form.cod_tanque.$invalid && !Form.cod_tanque.$pristine }" class="col-sm-6">
                                         <label class="control-label" style="text-align: left;"><strong>Cod. Tanque:</strong></label>
@@ -211,7 +211,6 @@
                                     </div>
                                 </form>
                               </div>
-                              </ng-form>
                            </section>
                         </div>
                      </div>
