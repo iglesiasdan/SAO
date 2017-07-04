@@ -55,7 +55,7 @@
                         <div ng-class="{ 'has-error' : Form.fecha_arribo.$invalid && !Form.fecha_arribo.$pristine }" class="col-md-6">
                            <label class="control-label" style="text-align: left;"><strong>*Fecha de Arribo:</strong></label>
                            <input type="date" class="form-control" name="fecha_arribo" id="fecha_arribo" ng-model="posts1.Fecha" required>
-                           <p ng-show="Form.fecha_arribo.$invalid && !Form.fecha_arribo.$pristine" class="help-block">Ingrese Calado de Proa.</p>
+                           <p ng-show="Form.fecha_arribo.$invalid && !Form.fecha_arribo.$pristine" class="help-block">Ingrese Fecha de Arribo.</p>
                         </div>
                         <div ng-class="{ 'has-error' : Form.calado_proa.$invalid && !Form.calado_proa.$pristine }" class="col-md-6">
                            <label class="control-label" style="text-align: left;"><strong>*Calado de Proa:</strong></label>
@@ -69,7 +69,7 @@
                         </div>
                         <div ng-class="{ 'has-error' : Form.diferencia_calado.$invalid && !Form.diferencia_calado.$pristine }"  class="col-md-6">
                            <label class="control-label" style="text-align: left;"><strong>*Diferencia de Calado:</strong></label>
-                           <input type="text" class="form-control" name="diferencia_calado" id="diferencia_calado" placeholder="Diferencia de Calado" value="{{posts1.Calado_proa+posts1_Calado_popa}}" ng-model="posts1.Diferencias_calado" disabled required>
+                           <input type="text" class="form-control" name="diferencia_calado" id="diferencia_calado" placeholder="Diferencia de Calado" value="{{posts1.Calado_proa+posts1_Calado_popa}}" ng-model="posts1.Diferencias_calado" required>
                            <p ng-show="Form.diferencia_calado.$invalid && !Form.diferencia_calado.$pristine" class="help-block">Ingrese la Diferencia de Calado.</p>
                         </div>
                   </div>
