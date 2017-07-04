@@ -69,7 +69,7 @@
                         </div>
                         <div  class="col-md-6">
                            <label class="control-label" style="text-align: left;"><strong>*Diferencia de Calado:</strong></label>
-                           <input type="text" class="form-control" name="diferencia_calado" id="diferencia_calado" placeholder="Diferencia de Calado" value="{posts1.Calado_proa+posts1_Calado_popa}" ng-model="posts1.Diferencias_calado" disabled required>
+                           <input type="text" class="form-control" name="diferencia_calado" id="diferencia_calado" placeholder="Diferencia de Calado" value="{{posts1.Calado_proa+posts1_Calado_popa}}" ng-model="posts1.Diferencias_calado" disabled required>
                             
                         </div>
                   </div>
