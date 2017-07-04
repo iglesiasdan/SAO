@@ -166,11 +166,7 @@
                                         <input type="text" class="form-control" name="cod_tanque" id="cod_tanque" placeholder="Codigo del Tanque" ng-model="selectedtanque.N_tanque" required>
                                         <p ng-show="Form.cod_tanque.$invalid && !Form.cod_tanque.$pristine" class="help-block">Ingrese Codigo del Tanque.</p>
                                         </div>
-                                    <div class="col-sm-6">
-                                        <label class="control-label" style="text-align: left;"><strong>Capacidad:</strong></label>
-                                        <input type="number" class="form-control" name="detalle_capacidad" id="detalle_capacidad" placeholder="Capacidad del tanques"   ng-model="selectedtanque.Capacidad">
-                                        </div>
-
+                                    
                                     </div>
                                     <div class="form-group">
                                         <div class="col-sm-6">
@@ -202,14 +198,14 @@
                                         <div class="col-sm-6">
                                         <label class="control-label" style="text-align: left;"><strong>Conductividad (�S):</strong></label>
                                         <input min="20" max="40" type="number" class="form-control" name="detalle_conductividad" id="detalle_conductividad" placeholder="Conductividad del tanques" ng-model="selectedtanque.Conductividad">
-                                        <p ng-show="Form.detalle_conductividad.$error.minlength" class="help-block">Valor de Conductividad muy Bajo.</p>
-                                        <p ng-show="Form.detalle_conductividad.$error.maxlength" class="help-block">Valor de Conductividad muy Alto.</p>
+                                        <p ng-show="Form.detalle_conductividad.$error.min" class="help-block">Valor de Conductividad muy Bajo.</p>
+                                        <p ng-show="Form.detalle_conductividad.$error.max" class="help-block">Valor de Conductividad muy Alto.</p>
                                         </div>
                                     <div class="col-sm-6">
                                         <label class="control-label" style="text-align: left;"><strong>PH:</strong></label>
                                         <input min="6" max="9" type="number" class="form-control" name="detalle_ph" id="detalle_ph" placeholder="PH del tanques" ng-model="selectedtanque.Ph" >
-                                        <p ng-show="Form.detalle_ph.$error.minlength" class="help-block">Valor de PH muy Bajo.</p>
-                                        <p ng-show="Form.detalle_ph.$error.maxlength" class="help-block">Valor de PH muy Alto.</p>
+                                        <p ng-show="Form.detalle_ph.$error.min" class="help-block">Valor de PH muy Bajo.</p>
+                                        <p ng-show="Form.detalle_ph.$error.max" class="help-block">Valor de PH muy Alto.</p>
                                         </div>
                                     </div>
                                     <div class="form-group">
