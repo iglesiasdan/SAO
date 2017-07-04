@@ -193,8 +193,8 @@
                                     <div class="col-sm-6">
                                         <label class="control-label" style="text-align: left;"><strong>Temperatura (�C):</strong></label>
                                         <input min="26" max="32" type="number" class="form-control" name="detalle_temperatura" id="detalle_temperatura" placeholder="Temperatura del tanques" ng-model="selectedtanque.Temperatura" >
-                                        <p ng-show="Form.detalle_temperatura.$error.minlength" class="help-block">Valor de Temperatura muy Bajo.</p>
-                                        <p ng-show="Form.detalle_temperatura.$error.maxlength" class="help-block">Valor de Temperatura muy Alto.</p>
+                                        <p ng-show="Form.detalle_temperatura.$error.min" class="help-block">Valor de Temperatura muy Bajo.</p>
+                                        <p ng-show="Form.detalle_temperatura.$error.max" class="help-block">Valor de Temperatura muy Alto.</p>
                                         </div>
 
                                     </div>
