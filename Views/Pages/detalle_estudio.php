@@ -162,7 +162,7 @@
                                    <ng-form id="Form" name="Form" >
                                     <div class="form-group">
                                         <div ng-class="{ 'has-error' : Form.cod_tanque.$invalid && !Form.cod_tanque.$pristine }" class="col-sm-6">
-                                        <label class="control-label" style="text-align: left;"><strong>Cod. Tanque:</strong></label>
+                                        <label class="control-label" style="text-align: left;"><strong>*Cod. Tanque:</strong></label>
                                         <input type="text" class="form-control" name="cod_tanque" id="cod_tanque" placeholder="Codigo del Tanque" ng-model="selectedtanque.N_tanque" required>
                                         <p ng-show="Form.cod_tanque.$invalid && !Form.cod_tanque.$pristine" class="help-block">Ingrese Codigo del Tanque.</p>
                                         </div>
@@ -214,6 +214,7 @@
                                         </div>
                                     </div>
                                 </ng-form>
+                                <p>Los Campos que Poseen '*' Son Requeridos.</p>
                               </div>
                            </section>
                         </div>
