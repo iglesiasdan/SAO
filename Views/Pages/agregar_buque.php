@@ -118,7 +118,7 @@
 
                         <div class="form-group">
                            <div class="col-md-4">
-                              <input class="mb-xs mt-xs mr-xs btn btn-primary" ng-disabled="Form.$invalid" type="submit" value="Agregar Buque">
+                              <input class="mb-xs mt-xs mr-xs btn btn-primary" ng-click="submit()" ng-disabled="Form.$invalid" type="submit" value="Agregar Buque">
                            </div>
                         </div>
                         <!-- http://107.180.66.98:90:3001/upload -->
