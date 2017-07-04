@@ -10,7 +10,7 @@
                            <div ng-class="{ 'has-error' : Form.nombre_puerto.$invalid && !Form.nombre_puerto.$pristine }" class="col-md-4">
                               <label class="control-label" style="text-align: left;"><strong>Nombre del Puerto:</strong></label>
                               <input type="text" class="form-control" name="nombre_puerto" id="nombre_puerto"  placeholder="Nombre del Puerto" ng-model="posts.Nombre_puerto" required>
-                              <p ng-show="Form.nombre_puerto.$invalid && !Form.nombre_puerto.$pristine" class="help-block">Ingrese Fecha de Arribo.</p>
+                              <p ng-show="Form.nombre_puerto.$invalid && !Form.nombre_puerto.$pristine" class="help-block">Ingrese Nombre del Puerto.</p>
                             </div>
                            <div class="col-md-4">
                               <label class="control-label" style="text-align: left;"><strong>Ciudad:</strong></label>

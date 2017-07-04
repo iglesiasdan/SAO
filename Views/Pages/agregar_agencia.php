@@ -4,12 +4,13 @@
                   <header class="panel-heading">
                      <h2 class="panel-title">Agregar Agencia</h2>
                   </header>
-                  <form ng-submit="submit()">
+                  <ng-form id="Form" name="Form" ng-submit="submit()">
                      <div class="panel-body">
                         <div class="form-group">
-                           <div class="col-md-4">
-                              <label class="control-label" style="text-align: left;"><strong>Nombre del Agencia:</strong></label>
-                              <input type="text" class="form-control" name="nombre_agencia" id="nombre_agencia" placeholder="Nombre del Agencia" ng-model="data.nombre_agencia">
+                           <div ng-class="{ 'has-error' : Form.nombre_agencia.$invalid && !Form.nombre_agencia.$pristine }" class="col-md-4">
+                              <label class="control-label" style="text-align: left;"><strong>Nombre de Agencia:</strong></label>
+                              <input type="text" class="form-control" name="nombre_agencia" id="nombre_agencia" placeholder="Nombre del Puerto" ng-model="posts.Nombre_agencia" required>
+                              <p ng-show="Form.nombre_agencia.$invalid && !Form.nombre_agencia.$pristine" class="help-block">Ingrese Nombre de la Agencia.</p>
                            </div>
                            <div class="col-md-12">
                               <label class="control-label" style="text-align: left;"><strong>Descripción:</strong></label>
@@ -18,7 +19,7 @@
                         </div>
                         <div class="form-group">
                            <div class="col-md-4">
-                              <input class="mb-xs mt-xs mr-xs btn btn-primary" type="submit" value="Agregar Agencia">
+                              <input class="mb-xs mt-xs mr-xs btn btn-primary" ng-disabled="Form.$invalid" type="submit" value="Agregar Agencia">
                            </div>
                         </div>
                      </div>
