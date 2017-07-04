@@ -159,7 +159,7 @@
                               </header>
                               
                                 <div class="panel-body">
-                                    <form class="" ng-submit="submit()" method="post" name="Form">
+                                   <ng-form id="Form" name="Form" >
                                     <div class="form-group">
                                         <div ng-class="{ 'has-error' : Form.cod_tanque.$invalid && !Form.cod_tanque.$pristine }" class="col-sm-6">
                                         <label class="control-label" style="text-align: left;"><strong>Cod. Tanque:</strong></label>
@@ -168,17 +168,17 @@
                                         </div>
                                     <div class="col-sm-6">
                                         <label class="control-label" style="text-align: left;"><strong>Capacidad:</strong></label>
-                                        <input type="text" class="form-control" name="detalle_capacidad" id="detalle_capacidad" placeholder="Capacidad del tanques"   ng-model="selectedtanque.Capacidad">
+                                        <input type="number" class="form-control" name="detalle_capacidad" id="detalle_capacidad" placeholder="Capacidad del tanques"   ng-model="selectedtanque.Capacidad">
                                         </div>
 
                                     </div>
                                     <div class="form-group">
                                         <div class="col-sm-6">
                                         <label class="control-label" style="text-align: left;"><strong>Volumen:</strong></label>
-                                        <input type="text" class="form-control" name="detalle_volumen" id="detalle_volumen" placeholder="Volumen del tanques" ng-model="selectedtanque.Volumen" >
+                                        <input type="number" class="form-control" name="detalle_volumen" id="detalle_volumen" placeholder="Volumen del tanques" ng-model="selectedtanque.Volumen" >
                                         </div>
                                     <div class="col-sm-6">
-                                        <label class="control-label" style="text-align: left;"><strong>Riesgo:</strong></label>
+                                        <label class="control-label" style="text-align: left;"><strong>Riesgo (Low o High):</strong></label>
                                         <input type="text" class="form-control" name="detalle_actividad" id="detalle_actividad" placeholder="Actividad del tanques" ng-model="selectedtanque.Actividad" >
                                         </div>
 
@@ -186,30 +186,30 @@
                                     <div class="form-group">
                                         <div class="col-sm-6">
                                         <label class="control-label" style="text-align: left;"><strong>Salinidad:</strong></label>
-                                        <input type="text" class="form-control" name="detalle_salinidad" id="detalle_salinidad" placeholder="Salinidad del tanques" ng-model="selectedtanque.Salinidad" >
+                                        <input type="number" class="form-control" name="detalle_salinidad" id="detalle_salinidad" placeholder="Salinidad del tanques" ng-model="selectedtanque.Salinidad" >
                                         </div>
                                     <div class="col-sm-6">
                                         <label class="control-label" style="text-align: left;"><strong>Temperatura (�C):</strong></label>
-                                        <input type="text" class="form-control" name="detalle_temperatura" id="detalle_temperatura" placeholder="Temperatura del tanques" ng-model="selectedtanque.Temperatura" >
+                                        <input type="number" class="form-control" name="detalle_temperatura" id="detalle_temperatura" placeholder="Temperatura del tanques" ng-model="selectedtanque.Temperatura" >
                                         </div>
 
                                     </div>
                                     <div class="form-group">
                                         <div class="col-sm-6">
                                         <label class="control-label" style="text-align: left;"><strong>Conductividad (�S):</strong></label>
-                                        <input type="text" class="form-control" name="detalle_conductividad" id="detalle_conductividad" placeholder="Conductividad del tanques" ng-model="selectedtanque.Conductividad">
+                                        <input type="number" class="form-control" name="detalle_conductividad" id="detalle_conductividad" placeholder="Conductividad del tanques" ng-model="selectedtanque.Conductividad">
                                         </div>
                                     <div class="col-sm-6">
                                         <label class="control-label" style="text-align: left;"><strong>PH:</strong></label>
-                                        <input type="text" class="form-control" name="detalle_ph" id="detalle_ph" placeholder="PH del tanques" ng-model="selectedtanque.Ph" >
+                                        <input type="number" class="form-control" name="detalle_ph" id="detalle_ph" placeholder="PH del tanques" ng-model="selectedtanque.Ph" >
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <div class="col-md-12">
-                                        <button id="btn_agregar_tanque" ng-disabled="Form.$invalid" type="submit" class="mb-xs mt-xs mr-xs btn btn-primary btn-block boton"><span>{{selectedtanque.ID_usuario ? 'Modificar Tanque' : 'Guardar Tanque'}}</span></button>
+                                        <button id="btn_agregar_tanque" ng-disabled="Form.$invalid" ng-click="submit()" type="submit" class="mb-xs mt-xs mr-xs btn btn-primary btn-block boton"><span>{{selectedtanque.ID_usuario ? 'Modificar Tanque' : 'Guardar Tanque'}}</span></button>
                                         </div>
                                     </div>
-                                </form>
+                                </ng-form>
                               </div>
                            </section>
                         </div>
@@ -231,7 +231,7 @@
                                              <input disabled type="text" class="form-control" name="promedio_zona" id="promedio_zona" placeholder="Zona">
                                           </div>
                                           <div class="col-sm-4">
-                                             <label class="control-label" style="text-align: left;"><strong>Actividad (Low o High):</strong></label>
+                                             <label class="control-label" style="text-align: left;"><strong>Riesgo (Low o High):</strong></label>
                                              <input disabled type="text" class="form-control" name="promedio_actividad" id="promedio_actividad" placeholder="Actividad" value={{prom.acti}}>
                                           </div>
                                           <div class="col-sm-4">
