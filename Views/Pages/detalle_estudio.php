@@ -187,8 +187,8 @@
                                         <div class="col-sm-6">
                                         <label class="control-label" style="text-align: left;"><strong>Salinidad:</strong></label>
                                         <input min="5" max="20" type="number" class="form-control" name="detalle_salinidad" id="detalle_salinidad" placeholder="Salinidad del tanques" ng-model="selectedtanque.Salinidad" >
-                                        <p ng-show="Form.detalle_salinidad.$error.minlength" class="help-block">Valor de Salinidad muy Bajo.</p>
-                                        <p ng-show="Form.detalle_salinidad.$error.maxlength" class="help-block">Valor de Salinidad muy Alto.</p>
+                                        <p ng-show="Form.detalle_salinidad.$error.min" class="help-block">Valor de Salinidad muy Bajo.</p>
+                                        <p ng-show="Form.detalle_salinidad.$error.max" class="help-block">Valor de Salinidad muy Alto.</p>
                                         </div>
                                     <div class="col-sm-6">
                                         <label class="control-label" style="text-align: left;"><strong>Temperatura (�C):</strong></label>
