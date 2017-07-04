@@ -26,7 +26,7 @@
                         <div class="form-group">
                            <div ng-class="{ 'has-error' : Form.nombre_buque.$invalid && !Form.nombre_buque.$pristine }" class="col-md-4">
                               <label class="control-label" style="text-align: left;"><strong>*Nombre del Buque:</strong></label>
-                              <input type="text" class="form-control" name="nombre_buque" id="nombre_buque" placeholder="Nombre del Buque" ng-model="data.nombre_buque" required>
+                              <input type="text" class="form-control" name="nombre_buque" id="nombre_buque" placeholder="Nombre del Buque" ng-model="data.Nombre_buque" required>
                               <p ng-show="Form.nombre_buque.$invalid && !Form.nombre_buque.$pristine" class="help-block">Ingrese Nombre del Buque.</p>
                            </div>
                            <div ng-class="{ 'has-error' : Form.numero_imo.$invalid && !Form.numero_imo.$pristine }" class="col-md-4">
@@ -36,7 +36,7 @@
                            </div>
                            <div ng-class="{ 'has-error' : Form.abanderamiento.$invalid && !Form.abanderamiento.$pristine }" class="col-md-4">
                               <label class="control-label" style="text-align: left;"><strong>*Abanderamiento:</strong></label>
-                              <input type="text" class="form-control" name="abanderamiento" id="abanderamiento" placeholder="Pais de Procedencia" ng-model="data.abanderamiento" required>
+                              <input type="text" class="form-control" name="abanderamiento" id="abanderamiento" placeholder="Pais de Procedencia" ng-model="data.Abanderamiento" required>
                               <p ng-show="Form.abanderamiento.$invalid && !Form.abanderamiento.$pristine" class="help-block">Ingrese Abanderamiento del Buque.</p>
                            </div>
                         </div>
@@ -103,7 +103,7 @@
                         </div>
                         <div class="form-group">
                            <div class="col-md-4">
-                              <input class="mb-xs mt-xs mr-xs btn btn-primary boton" type="submit" value="Modificar Buque">
+                              <input class="mb-xs mt-xs mr-xs btn btn-primary boton" ng-click="submit()" type="submit" value="Modificar Buque">
                            </div>
                         </div>
                      </div>

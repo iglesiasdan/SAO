@@ -51,7 +51,7 @@
                      </div>
                      <div class="form-group">
                         <div class="col-md-4">
-                           <button id="btn_modificar_puerto" ng-disabled="Form.$invalid" type="submit" class="mb-xs mt-xs mr-xs btn btn-primary btn-block boton">Modificar Agencia</button>
+                           <button id="btn_modificar_puerto" ng-disabled="Form.$invalid" ng-click="submit()" type="submit" class="mb-xs mt-xs mr-xs btn btn-primary btn-block boton">Modificar Agencia</button>
                         </div>
                      </div>
                   </div>

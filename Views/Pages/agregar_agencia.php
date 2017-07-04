@@ -19,7 +19,7 @@
                         </div>
                         <div class="form-group">
                            <div class="col-md-4">
-                              <input class="mb-xs mt-xs mr-xs btn btn-primary" ng-disabled="Form.$invalid" type="submit" value="Agregar Agencia">
+                              <input class="mb-xs mt-xs mr-xs btn btn-primary" ng-click="submit()" ng-disabled="Form.$invalid" type="submit" value="Agregar Agencia">
                            </div>
                         </div>
                      </div>
