@@ -163,7 +163,7 @@
                                     <div class="form-group">
                                         <div ng-class="{ 'has-error' : Form.cod_tanque.$invalid && !Form.cod_tanque.$pristine }" class="col-sm-6">
                                         <label class="control-label" style="text-align: left;"><strong>Cod. Tanque:</strong></label>
-                                        <input type="text" class="form-control" name="cod_tanque" id="cod_tanque" placeholder="Codigo del Tanque" ng-model="selectedtanque.N_tanque" }>
+                                        <input type="text" class="form-control" name="cod_tanque" id="cod_tanque" placeholder="Codigo del Tanque" ng-model="selectedtanque.N_tanque" required>
                                         <p ng-show="Form.cod_tanque.$invalid && !Form.cod_tanque.$pristine" class="help-block">Ingrese Codigo del Tanque.</p>
                                         </div>
                                     <div class="col-sm-6">
