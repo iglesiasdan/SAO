@@ -11,15 +11,25 @@ myApp.controller('estadisticasController', ['$scope', '$http', 'urlbase', '$stat
 
     $("#graficas").hide();
     $("#graficas2").hide();
-    $("#btn_consultar").hide();
+    $("#btn_consultar_puerto").hide();
+    $("#btn_consultar_buque").hide();
     $(".bloquear").hide();
+    $(".fecha_puerto").hide();
+    $(".fecha_buque").hide();
 
-    $('#optionsRadios1').click(function() {
+
+$('#optionsRadios1').click(function() {
         $("#graficas2").hide();
-        $(".bloquear").attr('disabled',true);
+        $(".fecha_puerto").show();
+        $("#btn_consultar_puerto").show();
+        $(".fecha_buque").hide();
+        $("#btn_consultar_buque").hide();
         $(".bloquear").hide();
-        $("#btn_consultar").hide();
-      cont++;
+
+        $('#btn_consultar_puerto').click(function(){
+
+
+            cont++;
       var checked = $(this).attr('checked', true);
       if(checked){
         console.log("checked");
@@ -31,13 +41,21 @@ myApp.controller('estadisticasController', ['$scope', '$http', 'urlbase', '$stat
                 //console.log('Data estadisticas:'+datapuerto.data.length);
                 $scope.puertos = datapuerto.data[i].ID_puerto;
                 puertos.push($scope.puertos);
+
             }
             //console.log(puertos);
             for (var j =0; j < datapuerto.data.length; j++) {
 
+                f1=$("#f1p").val();
+                f2=$("#f2p").val();
+
+                ruta='estadisticas/'+puertos[j]+'/'+f1+'/'+f2;
+                //console.log('RUTA='+ruta);
+
                 $http({
                     method: 'GET',
-                    url: urlbase + 'estadisticas/'+puertos[j]
+                   // url: urlbase + 'estadisticas/'+puertos[j]+'/'+f1+'/'+f2
+                   url: urlbase + ruta
                 }).then(function successCallback(databuques) {
 
 
@@ -73,16 +91,23 @@ myApp.controller('estadisticasController', ['$scope', '$http', 'urlbase', '$stat
         })
         //fin de httprequest
       }
+
+        });
+      
     });
 
 //##################### INICIO TODOS LOS BUQUES ##############
 
  $('#optionsRadios2').click(function() {
     $("#graficas").hide();
-    $(".bloquear").attr('disabled',true);
+    $(".fecha_puerto").hide();
+    $(".fecha_buque").show();
+    $("#btn_consultar_puerto").hide();
+    $("#btn_consultar_buque").show();
     $(".bloquear").hide();
-    $("#btn_consultar").hide();
-         cont++;
+
+    $("#btn_consultar_buque").click(function(){
+        cont++;
       var checked = $(this).attr('checked', true);
       if(checked){
         console.log("checked");
@@ -97,10 +122,13 @@ myApp.controller('estadisticasController', ['$scope', '$http', 'urlbase', '$stat
             }
             //console.log(buques);
             for (var j =0; j < databuque.data.length; j++) {
+                f1b=$("#f1b").val();
+                f2b=$("#f2b").val();
 
+                ruta_buque='estadisticas/estabuques/'+buques[j]+'/'+f1b+'/'+f2b;
                 $http({
                     method: 'GET',
-                    url: urlbase + 'estadisticas/estabuques/'+buques[j]
+                    url: urlbase + ruta_buque
                 }).then(function successCallback(databuques) {
                     for (var i = 0; i < databuques.data.length; i++) {
                         //console.log('Data estadisticas:'+datapuerto.data.length);
@@ -140,15 +168,75 @@ myApp.controller('estadisticasController', ['$scope', '$http', 'urlbase', '$stat
         })
         //fin de httprequest
       }
+        });
+         
     });
 
 //##################### FIN TDOOS LOS BUQUES ##################
 $('#optionsRadios3').click(function() {
     $("#graficas").hide();
     $("#graficas2").hide();
-    $(".bloquear").attr('disabled',false);
-    $("#btn_consultar").show();
+    $(".fecha_puerto").hide();
+    $(".fecha_buque").hide();
+    $("#btn_consultar_buque").hide();
+    $("#btn_consultar_buque").hide();
     $(".bloquear").show();
+
+    $("#btn_consultar_detalle").click(function(){
+        cont++;
+      var checked = $(this).attr('checked', true);
+      if(checked){
+        console.log("checked");
+        
+                f1d=$("#f1d").val();
+                f2d=$("#f2d").val();
+                idb=$("#buque").val();
+                idp=$("#puerto").val();
+
+
+             
+                ruta_detalle='estadisticas/detalle/'+idb+'/'+f1d+'/'+f2d+'/'+idp;
+                console.log(ruta_detalle);
+                $http({
+                    method: 'GET',
+                    url: urlbase + ruta_detalle
+                }).then(function successCallback(databuques) {
+                    for (var i = 0; i < databuques.data.length; i++) {
+                        //console.log('Data estadisticas:'+datapuerto.data.length);
+                        $scope.buque = databuques.data[i].Nombre_buque;
+                        $scope.salinidad = databuques.data[i].salinidad;
+                        $scope.temperatura = databuques.data[i].temperatura;
+                        $scope.conductividad = databuques.data[i].conductividad;
+                        $scope.ph = databuques.data[i].ph;
+                        console.log('Nombre_buque= '+$scope.buque);
+                        console.log('salinidad= '+$scope.salinidad);
+                        console.log('temperatura= '+$scope.temperatura);
+                        console.log('conductividad= '+$scope.conductividad);
+                        console.log('ph= '+$scope.ph);
+
+                         if (($.isNumeric($scope.salinidad)) && (cont===1)) {
+                            //console.log($.isNumeric($scope.salinidad));
+                            estadisticas.push($scope.buque);
+                            estadisticas_salinidad.push($scope.salinidad);
+                            estadisticas_temperatura.push($scope.temperatura);
+                            estadisticas_conductividad.push($scope.conductividad);
+                            estadisticas_ph.push($scope.ph);
+                        }
+                        $rootScope.estadisticas=estadisticas;
+                        $rootScope.estadisticas_salinidad=estadisticas_salinidad;
+                        $rootScope.estadisticas_temperatura=estadisticas_temperatura;
+                        $rootScope.estadisticas_conductividad=estadisticas_conductividad;
+                        $rootScope.estadisticas_ph=estadisticas_ph;
+
+
+
+
+                                        }
+
+                    $("#graficas2").show();
+                })
+      }
+        });
   
 });
 
@@ -179,7 +267,7 @@ $http({
 }).then(function successCallback(response) {
     $scope.posts1 = response.data;
     // console.log("estudio  ");
-    console.log("update");
+   // console.log("update");
 
   }, function errorCallback(response) {
     console.log(response.statusText);
@@ -202,8 +290,8 @@ $http({
         $scope.datas_salinidad = [$scope.estadisticas_salinidad];
         //console.log('Salinidad:');
         //console.log($scope.estadisticas_puerto);
-        console.log('valor maximoooo');
-        console.log(Math.max($scope.datas_salinidad));
+        //console.log('valor maximoooo');
+        //console.log(Math.max($scope.datas_salinidad));
 
     })
 

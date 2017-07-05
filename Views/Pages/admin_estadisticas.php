@@ -1,3 +1,14 @@
+<!--<script language="Javascript">
+   function imprSelec(nombre) {
+     var ficha = document.getElementById(nombre);
+     var ventimp = window.open(' ', 'popimpr');
+     ventimp.document.write( ficha.innerHTML );
+     ventimp.document.close();
+     ventimp.print( );
+     ventimp.close();
+   }
+   </script>-->
+
 
 <section class="panel panel-featured panel-featured-primary">
    <header class="panel-heading">
@@ -23,12 +34,24 @@
                               </div>
                            </div>
                         </div>
+                        <div class="col-sm-8 fecha_puerto">
+                           <div class="col-sm-8" style="padding:8px;">
+                              <div class="input-daterange input-group" data-plugin-datepicker>
+                                 <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                 <input id="f1p" name="f1p"type="date" class="form-control " required >
+                                 <span class="input-group-addon">a</span>
+                                 <input id="f2p" name="f2p" type="date" class="form-control" required >
+                              </div>
+                           </div>
+                              
+                           <div class="col-sm-4">
+                              <button id="btn_consultar_puerto" type="submit" class="mb-xs mt-xs mr-xs btn btn-primary btn-block">Consultar</button>
+                           </div>
+                           
+                        </div>
                         <div class="col-sm-8">
                            <select id="puerto" name="puerto" class="form-control mb-md bloquear" ng-model="selectedPuerto" ng-options="post.Nombre_puerto for post in posts track by post.ID_puerto" required>
                               <option value="" disabled selected>Selecionar Puerto</option>
-                              <option value='1'>Puerto 1</option>
-                              <option value='2'>Puerto 2</option>
-                              <option value='3 Vacacional'>Puerto 3</option>
                            </select>
                         </div>
                      </div>
@@ -43,6 +66,20 @@
                                  Todos los Buques
                                  </label>
                               </div>
+                           </div>
+                        </div>
+                        <div class="col-sm-8 fecha_buque">
+                           <div class="col-sm-8" style="padding:8px;">
+                              <div class="input-daterange input-group" data-plugin-datepicker>
+                                 <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                 <input id="f1b" name="f1b"type="date" class="form-control " required >
+                                 <span class="input-group-addon">a</span>
+                                 <input id="f2b" name="f2b" type="date" class="form-control" required >
+                              </div>
+                           </div>
+                              
+                           <div class="col-sm-4">
+                              <button id="btn_consultar_buque" type="submit" class="mb-xs mt-xs mr-xs btn btn-primary btn-block">Consultar</button>
                            </div>
                         </div>
                         <div class="col-sm-8 bloquear" >
@@ -65,28 +102,18 @@
                            </div>
                         </div>
                         <div class="col-sm-8 bloquear">
-                           <div class="form-group">
-                              <div class="form-group">
-                                 <div class="form-group">
-                                    <div class="col-sm-4">
-                                       <div class="checkbox">
-                                          <label>
-                                          <input id="check_fecha" name="check_fecha" type="checkbox" class="bloquear" value="">Rango de fecha
-                                          </label>
-                                       </div>
-                                    </div>
-                                    <div class="col-sm-8">
-                                       <div class="input-daterange input-group" data-plugin-datepicker>
-                                          <span class="input-group-addon">
-                                          <i class="fa fa-calendar"></i>
-                                          </span>
-                                          <input id="fecha_1" name="fecha_1"type="text" class="form-control bloquear" name="start">
-                                          <span class="input-group-addon">a</span>
-                                          <input id="fecha_2" name="fecha_2" type="text" class="form-control bloquear" name="end">
-                                       </div>
-                                    </div>
+                           <div class="col-sm-8 form-group " style="padding: 8px  0px  0px  0px">
+                              <div class="fecha_detalle">
+                                 <div class="input-daterange input-group" data-plugin-datepicker>
+                                    <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                    <input id="f1d" name="f1d"type="date" class="form-control " required >
+                                    <span class="input-group-addon">a</span>
+                                    <input id="f2d" name="f2d" type="date" class="form-control" required >
                                  </div>
                               </div>
+                           </div>
+                            <div class="col-sm-4">
+                              <button id="btn_consultar_detalle" type="submit" class="mb-xs mt-xs mr-xs btn btn-primary btn-block">Consultar</button>
                            </div>
                         </div>
                      </div>
@@ -139,10 +166,7 @@
             </div> -->
       </div>
       <div class="form-group">
-         <div class="col-md-6">
-            <button id="btn_consultar" type="submit" class="mb-xs mt-xs mr-xs btn btn-primary btn-block">Consultar</button>
-         </div>
-         <div class="col-md-6">
+         <div class="col-md-4 pull-right">
             <button id="btn_reiniciar" type="submit" class="mb-xs mt-xs mr-xs btn btn-primary btn-block">Reiniciar</button>
          </div>
       </div>
@@ -158,10 +182,14 @@
             <section class="panel panel-featured panel-featured-primary">
                <header class="panel-heading">
                   <h2 class="panel-title">Salinidad</h2>
+                  
+                 <!-- <div class="panel-actions" >
+                     <a href="javascript:imprSelec('grafico_salinidad')" class="panel-action" style="color:#d03b01;"  ><i class="fa fa-download"></i></a>
+                  </div>-->
                </header>
             </section>
             <div class="col-md-2"></div>
-            <div class="col-md-8">
+            <div class="col-md-8" id="grafico_salinidad">
                <canvas id="base" class="chart-horizontal-bar"
                   chart-data="datas_salinidad" chart-labels="labels" chart-options="opt_salinidad" chart-colors="colors" >
                </canvas>
