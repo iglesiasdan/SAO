@@ -50,7 +50,7 @@
                     </div> -->
                     <div class="panel-body">
                                        <form id="frmUploader" enctype="multipart/form-data" action="http://107.180.66.98:90:3000/api/Upload/" method="post">
-                                           <input type="file" name="imgUploader" multiple />
+                                           <input type="file" name="imgUploader" multiple ng-model="post.foto"/>
                                            <input type="submit" name="submit" id="btnSubmit" value="Upload" />
                                        </form>
 
