@@ -69,12 +69,12 @@
                         </div>
                         <div ng-class="{ 'has-error' : Form.diferencia_calado.$invalid && !Form.diferencia_calado.$pristine }"  class="col-md-4">
                            <label class="control-label" style="text-align: left;"><strong>*Diferencia de Calado:</strong></label>
-                           <input type="number" class="form-control" name="diferencia_calado" id="diferencia_calado" placeholder="Diferencia de Calado" value="{{posts1.Calado_proa+posts1_Calado_popa}}" ng-model="posts1.Diferencias_calado" required>
+                           <input type="number" class="form-control" name="diferencia_calado" id="diferencia_calado" placeholder="Diferencia de Calado" ng-model="posts1.Diferencias_calado" required>
                            <p ng-show="Form.diferencia_calado.$invalid && !Form.diferencia_calado.$pristine" class="help-block">Ingrese la Diferencia de Calado.</p>
                         </div>
                         <div class="col-md-4">
                               <label class="control-label" style="text-align: left;"><strong>Volumen total Deslastrado:</strong></label>
-                              <input type="number" class="form-control" name="vol_total" id="vol_total" placeholder="Volumen total de tanque" ng-model="posts1.Volumen_total">
+                              <input type="number" class="form-control" name="vol_total" id="vol_total" placeholder="Volumen total de tanque" ng-model="posts1.volumen_total">
                         </div>
                   </div>
                   </div>

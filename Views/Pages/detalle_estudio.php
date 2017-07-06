@@ -229,7 +229,7 @@
                                       <div class="form-group">
                                          <div class="col-sm-4">
                                                 <label class="control-label" style="text-align: left;"><strong>Volumen total Deslastrado:</strong></label>
-                                                <input type="number" class="form-control" name="vol_total" id="vol_total" placeholder="Volumen total de tanque" ng-model="posts1.Volumen_total">
+                                                <input type="number" class="form-control" name="vol_total" id="vol_total" placeholder="Volumen total de tanque" ng-model="posts1.volumen_total">
                                           </div>
                                           <div class="col-sm-4">
                                              <label class="control-label" style="text-align: left;"><strong>Riesgo (Low o High):</strong></label>
