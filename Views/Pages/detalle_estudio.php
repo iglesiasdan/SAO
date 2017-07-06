@@ -119,10 +119,6 @@
                            <label class="control-label" style="text-align: left;"><strong>Capacidad Tanques:</strong></label>
                            <input disabled type="text" class="form-control" name="cap_tanques" id="cap_tanques" placeholder="Capacidad total de Tanques" value={{selectedBuque.Capacidad_tanques}}>
                         </div>
-                        <div class="col-md-4">
-                           <label class="control-label" style="text-align: left;"><strong>Volumen Tanques:</strong></label>
-                           <input disabled type="text" class="form-control" name="cap_tanques" id="cap_tanques" placeholder="Volumen Total Tanques" value={{selectedBuque.Vol_total}}>
-                        </div>
                      </div>
                   </div>
                </section>
@@ -232,8 +228,8 @@
                                     <div class="form-group">
                                       <div class="form-group">
                                          <div class="col-sm-4">
-                                             <label class="control-label" style="text-align: left;"><strong>Condicion del Buque:</strong></label>
-                                             <input disabled type="text" class="form-control" name="promedio_zona" id="promedio_zona" placeholder="Zona">
+                                                <label class="control-label" style="text-align: left;"><strong>Volumen total Deslastrado:</strong></label>
+                                                <input type="number" class="form-control" name="vol_total" id="vol_total" placeholder="Volumen total de tanque" ng-model="posts1.Volumen_total">
                                           </div>
                                           <div class="col-sm-4">
                                              <label class="control-label" style="text-align: left;"><strong>Riesgo (Low o High):</strong></label>

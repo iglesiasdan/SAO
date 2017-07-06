@@ -110,10 +110,6 @@
                               <label class="control-label" style="text-align: left;"><strong>Capcidad total de Tanques:</strong></label>
                               <input type="number" class="form-control" name="capacidad_tanques" id="capacidad_tanques" placeholder="Capcidad total de Tanques" ng-model="post.capacidad_tanques">
                            </div>
-                           <div class="col-md-4">
-                              <label class="control-label" style="text-align: left;"><strong>Volumen total de tanque:</strong></label>
-                              <input type="number" class="form-control" name="vol_total" id="vol_total" placeholder="Volumen total de tanque" ng-model="post.vol_total">
-                           </div>
                         </div>
 
                         <div class="form-group">
@@ -124,6 +120,7 @@
                         <!-- http://107.180.66.98:90:3001/upload -->
 
                   </ng-form>
+                  </form>
                   <p>Los Campos que Poseen '*' Son Requeridos.</p>
                   </div>
                </section>
