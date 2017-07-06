@@ -84,7 +84,10 @@
                            <label class="control-label" style="text-align: left;"><strong>Diferencia de Calado:</strong></label>
                            <input type="text" class="form-control" name="diferencia_calado" id="diferencia_calado" placeholder="Diferencia de Calado" ng-model="posts1.Diferencias_calado">
                         </div>
-
+                        <div class="col-md-6">
+                            <label class="control-label" style="text-align: left;"><strong>Volumen total Deslastrado:</strong></label>
+                            <input type="number" class="form-control" name="vol_total" id="vol_total" placeholder="Volumen total de tanque" ng-model="posts1.Volumen_total">
+                      </div>
 
                   </div>
                   </div>
@@ -227,10 +230,6 @@
                        <div class="panel-body">
                                     <div class="form-group">
                                       <div class="form-group">
-                                         <div class="col-sm-4">
-                                                <label class="control-label" style="text-align: left;"><strong>Volumen total Deslastrado:</strong></label>
-                                                <input type="number" class="form-control" name="vol_total" id="vol_total" placeholder="Volumen total de tanque" ng-model="posts1.volumen_total">
-                                          </div>
                                           <div class="col-sm-4">
                                              <label class="control-label" style="text-align: left;"><strong>Riesgo (Low o High):</strong></label>
                                              <input disabled type="text" class="form-control" name="promedio_actividad" id="promedio_actividad" placeholder="Actividad" value={{prom.acti}}>

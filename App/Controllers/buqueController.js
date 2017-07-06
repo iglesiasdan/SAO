@@ -247,6 +247,7 @@ myApp.controller('buqueController',['$scope','$http','urlbase','$stateParams','$
     json["calado_popa"] = this.posts1.Calado_popa;
     json["diferencias_calado"] = this.posts1.Diferencias_calado;
     json["observaciones"] = this.posts1.Observaciones;
+    json["volumen_total"] = this.posts1.Volumen_total;
     // var str = json["Fecha_arribo"];
     // var res = str.split("T");
     // json["Fecha_arribo"] = res[0];

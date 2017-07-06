@@ -74,7 +74,7 @@
                         </div>
                         <div class="col-md-4">
                               <label class="control-label" style="text-align: left;"><strong>Volumen total Deslastrado:</strong></label>
-                              <input type="number" class="form-control" name="vol_total" id="vol_total" placeholder="Volumen total de tanque" ng-model="posts1.volumen_total">
+                              <input type="number" class="form-control" name="vol_total" id="vol_total" placeholder="Volumen total de tanque" ng-model="posts1.Volumen_total">
                         </div>
                   </div>
                   </div>
