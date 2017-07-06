@@ -44,11 +44,12 @@
                               </div>
                            </div>
                               
-                           <div class="col-sm-4">
-                              <button id="btn_consultar_puerto" type="submit" class="mb-xs mt-xs mr-xs btn btn-primary btn-block">Consultar</button>
-                           </div>
+                           
                            
                         </div>
+                        <div class="col-sm-4">
+                              <button id="btn_consultar_puerto" type="submit" class="mb-xs mt-xs mr-xs btn btn-primary btn-block">Consultar</button>
+                           </div>
                         <div class="col-sm-8">
                            <select id="puerto" name="puerto" class="form-control mb-md bloquear" ng-model="selectedPuerto" ng-options="post.Nombre_puerto for post in posts track by post.ID_puerto" required>
                               <option value="" disabled selected>Selecionar Puerto</option>
@@ -78,10 +79,11 @@
                               </div>
                            </div>
                               
-                           <div class="col-sm-4">
+                           
+                        </div>
+                        <div class="col-sm-4">
                               <button id="btn_consultar_buque" type="submit" class="mb-xs mt-xs mr-xs btn btn-primary btn-block">Consultar</button>
                            </div>
-                        </div>
                         <div class="col-sm-8 bloquear" >
                            <select id="buque" name="buque" class="form-control mb-md bloquear" required ng-model="selectedBuque" ng-options="post.Nombre_buque for post in posts1 track by post.ID_buque">
                               <option value="" disabled selected>Selecionar Buque</option>
@@ -112,10 +114,11 @@
                                  </div>
                               </div>
                            </div>
-                            <div class="col-sm-4">
+                            
+                        </div>
+                        <div class="col-sm-4 bloquear">
                               <button id="btn_consultar_detalle" type="submit" class="mb-xs mt-xs mr-xs btn btn-primary btn-block">Consultar</button>
                            </div>
-                        </div>
                      </div>
                   </div>
                   
@@ -181,16 +184,16 @@
          <div class="col-md-12">
             <section class="panel panel-featured panel-featured-primary">
                <header class="panel-heading">
-                  <h2 class="panel-title">Salinidad</h2>
+                  <h2 class="panel-title">Salinidad (PPt)</h2>
                   
-                 <!-- <div class="panel-actions" >
-                     <a href="javascript:imprSelec('grafico_salinidad')" class="panel-action" style="color:#d03b01;"  ><i class="fa fa-download"></i></a>
+                 <!--<div class="panel-actions" >
+                     <button id="btn_save" type="submit"  class="mb-xs mt-xs mr-xs btn btn-primary btn-block save"><i class="fa fa-download"></i></button>
                   </div>-->
                </header>
             </section>
             <div class="col-md-2"></div>
             <div class="col-md-8" id="grafico_salinidad">
-               <canvas id="base" class="chart-horizontal-bar"
+               <canvas id="base_salinidad" class="chart-horizontal-bar"
                   chart-data="datas_salinidad" chart-labels="labels" chart-options="opt_salinidad" chart-colors="colors" >
                </canvas>
             </div>
@@ -203,7 +206,7 @@
          <div class="col-md-12">
             <section class="panel panel-featured panel-featured-primary">
                <header class="panel-heading">
-                  <h2 class="panel-title">Temperatura</h2>
+                  <h2 class="panel-title">Temperatura (°C)</h2>
                </header>
             </section>
             <div class="col-md-2"></div>
@@ -239,13 +242,35 @@
          <div class="col-md-12">
             <section class="panel panel-featured panel-featured-primary">
                <header class="panel-heading">
-                  <h2 class="panel-title">Conductividad</h2>
+                  <h2 class="panel-title">Conductividad (µS)</h2>
                </header>
             </section>
             <div class="col-md-2"></div>
             <div class="col-md-8">
                <canvas id="base" class="chart-horizontal-bar"
                   chart-data="datas_conductividad" chart-labels="labels" chart-options="opt_conductividad" chart-colors="colors" >
+               </canvas>
+            </div>
+            <div class="col-md-2"></div>
+         </div>
+      </div>
+   </div>
+   <div class="panel-body">
+      <div class="form-group">
+         <div class="col-md-12">
+            <section class="panel panel-featured panel-featured-primary">
+               <header class="panel-heading">
+                  <h2 class="panel-title">Volumen Total Deslastrado (M<sup>3</sup>)</h2>
+                  
+                 <!--<div class="panel-actions" >
+                     <button id="btn_save" type="submit"  class="mb-xs mt-xs mr-xs btn btn-primary btn-block save"><i class="fa fa-download"></i></button>
+                  </div>-->
+               </header>
+            </section>
+            <div class="col-md-2"></div>
+            <div class="col-md-8" >
+               <canvas id="base_voltotal" class="chart-horizontal-bar"
+                  chart-data="datas_voltotal" chart-labels="labels"  chart-colors="colors" >
                </canvas>
             </div>
             <div class="col-md-2"></div>
@@ -262,7 +287,7 @@
          <div class="col-md-12">
             <section class="panel panel-featured panel-featured-primary">
                <header class="panel-heading">
-                  <h2 class="panel-title">Salinidad</h2>
+                  <h2 class="panel-title">Salinidad (PPt)</h2>
                </header>
             </section>
             <div class="col-md-2"></div>
@@ -280,7 +305,7 @@
          <div class="col-md-12">
             <section class="panel panel-featured panel-featured-primary">
                <header class="panel-heading">
-                  <h2 class="panel-title">Temperatura</h2>
+                  <h2 class="panel-title">Temperatura (°C)</h2>
                </header>
             </section>
             <div class="col-md-2"></div>
@@ -316,13 +341,134 @@
          <div class="col-md-12">
             <section class="panel panel-featured panel-featured-primary">
                <header class="panel-heading">
-                  <h2 class="panel-title">Conductividad</h2>
+                  <h2 class="panel-title">Conductividad (µS)</h2>
                </header>
             </section>
             <div class="col-md-2"></div>
             <div class="col-md-8">
                <canvas id="base" class="chart-horizontal-bar"
                   chart-data="datas_conductividad" chart-labels="labels" chart-options="opt_conductividad" chart-colors="colors" >
+               </canvas>
+            </div>
+            <div class="col-md-2"></div>
+         </div>
+      </div>
+   </div>
+   <div class="panel-body">
+      <div class="form-group">
+         <div class="col-md-12">
+            <section class="panel panel-featured panel-featured-primary">
+               <header class="panel-heading">
+                  <h2 class="panel-title">Volumen Total Deslastrado (M<sup>3</sup>)</h2>
+                  
+                 <!--<div class="panel-actions" >
+                     <button id="btn_save" type="submit"  class="mb-xs mt-xs mr-xs btn btn-primary btn-block save"><i class="fa fa-download"></i></button>
+                  </div>-->
+               </header>
+            </section>
+            <div class="col-md-2"></div>
+            <div class="col-md-8" >
+               <canvas id="base_voltotal" class="chart-horizontal-bar"
+                  chart-data="datas_voltotal" chart-labels="labels"  chart-colors="colors" >
+               </canvas>
+            </div>
+            <div class="col-md-2"></div>
+         </div>
+      </div>
+   </div>
+</section>
+<section id="graficas3" class="panel panel-featured panel-featured-primary">
+   <header class="panel-heading">
+      <h2 class="panel-title">Graficas de Estudios</h2>
+   </header>
+   <div class="panel-body">
+      <div class="form-group">
+         <div class="col-md-12">
+            <section class="panel panel-featured panel-featured-primary">
+               <header class="panel-heading">
+                  <h2 class="panel-title">Salinidad (PPt)</h2>
+               </header>
+            </section>
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+               <canvas id="base" class="chart-horizontal-bar"
+                  chart-data="datas_salinidad" chart-labels="labels" chart-options="opt_salinidad" chart-colors="colors" >
+               </canvas>
+            </div>
+            <div class="col-md-2"></div>
+         </div>
+      </div>
+   </div>
+   <div class="panel-body">
+      <div class="form-group">
+         <div class="col-md-12">
+            <section class="panel panel-featured panel-featured-primary">
+               <header class="panel-heading">
+                  <h2 class="panel-title">Temperatura (°C)</h2>
+               </header>
+            </section>
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+               <canvas id="base" class="chart-horizontal-bar"
+                  chart-data="datas_temperatura" chart-labels="labels" chart-options="opt_temperatura" chart-colors="colors" >
+               </canvas>
+            </div>
+            <div class="col-md-2"></div>
+         </div>
+      </div>
+   </div>
+   <div class="panel-body">
+      <div class="form-group">
+         <div class="col-md-12">
+            <section class="panel panel-featured panel-featured-primary">
+               <header class="panel-heading">
+                  <h2 class="panel-title">PH</h2>
+               </header>
+            </section>
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+               <canvas id="base" class="chart-horizontal-bar"
+                  chart-data="datas_ph" chart-labels="labels" chart-options="opt_ph" chart-colors="colors" >
+               </canvas>
+            </div>
+            <div class="col-md-2"></div>
+         </div>
+      </div>
+   </div>
+   <div class="panel-body">
+      <div class="form-group">
+         <div class="col-md-12">
+            <section class="panel panel-featured panel-featured-primary">
+               <header class="panel-heading">
+                  <h2 class="panel-title">Conductividad (µS)</h2>
+               </header>
+            </section>
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+               <canvas id="base" class="chart-horizontal-bar"
+                  chart-data="datas_conductividad" chart-labels="labels" chart-options="opt_conductividad" chart-colors="colors" >
+               </canvas>
+            </div>
+            <div class="col-md-2"></div>
+         </div>
+      </div>
+   </div>
+   <div class="panel-body">
+      <div class="form-group">
+         <div class="col-md-12">
+            <section class="panel panel-featured panel-featured-primary">
+               <header class="panel-heading">
+                  <h2 class="panel-title">Volumen Total Deslastrado (M<sup>3</sup>)</h2>
+                  
+                 <!--<div class="panel-actions" >
+                     <button id="btn_save" type="submit"  class="mb-xs mt-xs mr-xs btn btn-primary btn-block save"><i class="fa fa-download"></i></button>
+                  </div>-->
+               </header>
+            </section>
+            <div class="col-md-2"></div>
+            <div class="col-md-8" >
+               <canvas id="base_voltotal" class="chart-horizontal-bar"
+                  chart-data="datas_voltotal" chart-labels="labels"  chart-colors="colors" >
                </canvas>
             </div>
             <div class="col-md-2"></div>

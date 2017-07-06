@@ -6,11 +6,13 @@ myApp.controller('estadisticasController', ['$scope', '$http', 'urlbase', '$stat
     var estadisticas_temperatura=[];
     var estadisticas_conductividad=[];
     var estadisticas_ph=[];
+    var estadisticas_voltotal=[];
     var estadisticas=[];
     var cont=0;
 
     $("#graficas").hide();
     $("#graficas2").hide();
+    $("#graficas3").hide();
     $("#btn_consultar_puerto").hide();
     $("#btn_consultar_buque").hide();
     $(".bloquear").hide();
@@ -66,6 +68,8 @@ $('#optionsRadios1').click(function() {
                                             $scope.temperatura = databuques.data[i].temperatura;
                                             $scope.conductividad = databuques.data[i].conductividad;
                                             $scope.ph = databuques.data[i].ph;
+                                            $scope.voltotal = databuques.data[i].Voltotal;
+
                                             if (($.isNumeric($scope.salinidad)) && (cont===1)) {
                                               console.log($.isNumeric($scope.salinidad));
                                             estadisticas.push($scope.puerto);
@@ -73,12 +77,14 @@ $('#optionsRadios1').click(function() {
                                             estadisticas_temperatura.push($scope.temperatura);
                                             estadisticas_conductividad.push($scope.conductividad);
                                             estadisticas_ph.push($scope.ph);
+                                            estadisticas_voltotal.push($scope.voltotal);
                                           }
                                               $rootScope.estadisticas=estadisticas;
                                               $rootScope.estadisticas_salinidad=estadisticas_salinidad;
                                               $rootScope.estadisticas_temperatura=estadisticas_temperatura;
                                               $rootScope.estadisticas_conductividad=estadisticas_conductividad;
                                               $rootScope.estadisticas_ph=estadisticas_ph;
+                                              $rootScope.estadisticas_voltotal=estadisticas_voltotal;
 
 
 
@@ -137,6 +143,7 @@ $('#optionsRadios1').click(function() {
                         $scope.temperatura = databuques.data[i].temperatura;
                         $scope.conductividad = databuques.data[i].conductividad;
                         $scope.ph = databuques.data[i].ph;
+                        $scope.voltotal = databuques.data[i].Voltotal;
                         /*console.log('Nombre_buque= '+$scope.buque);
                         console.log('salinidad= '+$scope.salinidad);
                         console.log('temperatura= '+$scope.temperatura);
@@ -150,12 +157,14 @@ $('#optionsRadios1').click(function() {
                             estadisticas_temperatura.push($scope.temperatura);
                             estadisticas_conductividad.push($scope.conductividad);
                             estadisticas_ph.push($scope.ph);
+                            estadisticas_voltotal.push($scope.voltotal);
                         }
                         $rootScope.estadisticas=estadisticas;
                         $rootScope.estadisticas_salinidad=estadisticas_salinidad;
                         $rootScope.estadisticas_temperatura=estadisticas_temperatura;
                         $rootScope.estadisticas_conductividad=estadisticas_conductividad;
                         $rootScope.estadisticas_ph=estadisticas_ph;
+                        $rootScope.estadisticas_voltotal=estadisticas_voltotal;
 
 
 
@@ -208,11 +217,13 @@ $('#optionsRadios3').click(function() {
                         $scope.temperatura = databuques.data[i].temperatura;
                         $scope.conductividad = databuques.data[i].conductividad;
                         $scope.ph = databuques.data[i].ph;
+                        $scope.voltotal = databuques.data[i].Voltotal;
                         console.log('Nombre_buque= '+$scope.buque);
                         console.log('salinidad= '+$scope.salinidad);
                         console.log('temperatura= '+$scope.temperatura);
                         console.log('conductividad= '+$scope.conductividad);
                         console.log('ph= '+$scope.ph);
+                        console.log('voltotal= '+$scope.voltotal);
 
                          if (($.isNumeric($scope.salinidad)) && (cont===1)) {
                             //console.log($.isNumeric($scope.salinidad));
@@ -221,19 +232,21 @@ $('#optionsRadios3').click(function() {
                             estadisticas_temperatura.push($scope.temperatura);
                             estadisticas_conductividad.push($scope.conductividad);
                             estadisticas_ph.push($scope.ph);
+                            estadisticas_voltotal.push($scope.voltotal);
                         }
                         $rootScope.estadisticas=estadisticas;
                         $rootScope.estadisticas_salinidad=estadisticas_salinidad;
                         $rootScope.estadisticas_temperatura=estadisticas_temperatura;
                         $rootScope.estadisticas_conductividad=estadisticas_conductividad;
                         $rootScope.estadisticas_ph=estadisticas_ph;
+                        $rootScope.estadisticas_voltotal=estadisticas_voltotal;
 
 
 
 
                                         }
 
-                    $("#graficas2").show();
+                    $("#graficas3").show();
                 })
       }
         });
@@ -243,6 +256,14 @@ $('#optionsRadios3').click(function() {
 $('#btn_reiniciar').click(function() {
   location.reload();
 });
+
+/*$('.save').click(function() {
+  console.log('HOLAAA');
+  $('#base_salinidad').get(0).toBlob(function(blob){
+    saveAS(blob,"grafico.png");
+  });
+});*/
+
 
 
 
@@ -330,21 +351,11 @@ $http({
         })
 
     //Metros cubicos deslastrados --------------------------------------------------------------
-    /*$scope.datas_mtsdeslastrados = [
-        [1.83, 2.14, 1.875, 1.69, 1.62]
-    ];
-    $scope.opt_mtsdeslastrados = {
-        scales: {
-            xAxes: [{
-                id: 'x-axis-1',
-                type: 'linear',
-                ticks: {
-                    min: 0,
-                    max: 60
-                }
-            }]
-        },
-    };*/
+$rootScope.$watch('estadisticas_voltotal', function() {
+            $scope.estadisticas_voltotal=$rootScope.estadisticas_voltotal;
+            $scope.datas_voltotal = [$scope.estadisticas_voltotal];
+
+        })
 
 
     $scope.colors = ['#2d5035'];
