@@ -49,12 +49,7 @@
                       <span id = "status"></span>
                     </div> -->
                     <div class="panel-body">
-                                       <form id="frmUploader" enctype="multipart/form-data" action="http://107.180.66.98:90:3000/api/Upload/" method="post">
-                                           <input type="file" name="imgUploader" multiple ng-model="post.foto"/>
-                                           <input type="submit" name="submit" id="btnSubmit" value="Upload" />
-                                       </form>
-
-                    <form id="Form" name="Form" ng-submit="submit()">
+                    <form id="Form" name="Form" enctype="multipart/form-data" action="/api/photo" method="post">
 
                         <div class="form-group">
                            <div ng-class="{ 'has-error' : Form.nombre_buque.$invalid && !Form.nombre_buque.$pristine }" class="col-md-4">
@@ -114,14 +109,35 @@
 
                         <div class="form-group">
                            <div class="col-md-4">
-                              <input class="mb-xs mt-xs mr-xs btn btn-primary" ng-click="submit()" ng-disabled="Form.$invalid" type="submit" value="Agregar Buque">
+                              <input class="mb-xs mt-xs mr-xs btn btn-primary" name="submit" ng-disabled="Form.$invalid" type="submit" value="Agregar Buque">
                            </div>
                         </div>
                         <!-- http://107.180.66.98:90:3001/upload -->
-
+                        <input type="file" name="userPhoto" />
+	                   
                   </form>
-                  </form>
+                  
                   <p>Los Campos que Poseen '*' Son Requeridos.</p>
                   </div>
                </section>
             </div>
+<script type="text/javascript">
+	$("#Form").submit(function(e) {
+        var formData = new FormData($(this)[0]);
+
+        $.ajax({
+            url: "http://107.180.66.98:3000/buques",
+            type: "POST",
+            data: formData,
+            async: false,
+            success: function (msg) {
+                alert(msg)
+            },
+            cache: false,
+            contentType: false,
+            processData: false
+        });
+
+        e.preventDefault();
+    });
+</script>
