@@ -7,7 +7,7 @@
 <!doctype html>
 <html class="fixed">
 	<head>
-
+		<link rel="shortcut icon" type="image/x-icon" href="../assets/images/logo.png" />
 		<!-- Basic -->
 		<meta charset="UTF-8">
 
