@@ -61,7 +61,7 @@
                         </div>
                         <div class="col-md-6">
                            <div class="col-md-12 center-block">
-                              <img class="img-responsive center-block" src="http://107.180.66.98/node_backend/uploads/{{selectedBuque.Fotos}}" width="275">
+                              <img class="img-responsive center-block" src="{{selectedBuque.Fotos ? http://107.180.66.98/node_backend/uploads/selectedBuque.Fotos : '../assets/images/projects/project.jpg'}}" width="275">
                            </div>
                         </div>
 
