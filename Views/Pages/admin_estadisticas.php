@@ -1,13 +1,4 @@
-<!--<script language="Javascript">
-   function imprSelec(nombre) {
-     var ficha = document.getElementById(nombre);
-     var ventimp = window.open(' ', 'popimpr');
-     ventimp.document.write( ficha.innerHTML );
-     ventimp.document.close();
-     ventimp.print( );
-     ventimp.close();
-   }
-   </script>-->
+
 
 
 <section class="panel panel-featured panel-featured-primary">
@@ -47,7 +38,7 @@
                            
                            
                         </div>
-                        <div class="col-sm-4">
+                        <div class="col-sm-3 pull-right">
                               <button id="btn_consultar_puerto" type="submit" class="mb-xs mt-xs mr-xs btn btn-primary btn-block">Consultar</button>
                            </div>
                         <div class="col-sm-8">
@@ -69,7 +60,7 @@
                               </div>
                            </div>
                         </div>
-                        <div class="col-sm-8 fecha_buque">
+                        <div class="col-sm-8 fecha_buque ">
                            <div class="col-sm-8" style="padding:8px;">
                               <div class="input-daterange input-group" data-plugin-datepicker>
                                  <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
@@ -81,7 +72,7 @@
                               
                            
                         </div>
-                        <div class="col-sm-4">
+                        <div class="col-sm-3 pull-right">
                               <button id="btn_consultar_buque" type="submit" class="mb-xs mt-xs mr-xs btn btn-primary btn-block">Consultar</button>
                            </div>
                         <div class="col-sm-8 bloquear" >
@@ -116,7 +107,7 @@
                            </div>
                             
                         </div>
-                        <div class="col-sm-4 bloquear">
+                        <div class="col-sm-3 bloquear pull-right">
                               <button id="btn_consultar_detalle" type="submit" class="mb-xs mt-xs mr-xs btn btn-primary btn-block">Consultar</button>
                            </div>
                      </div>
@@ -177,7 +168,7 @@
 </section>
 <section id="graficas" class="panel panel-featured panel-featured-primary">
    <header class="panel-heading">
-      <h2 class="panel-title">Graficas de Estudios</h2>
+      <h2 class="panel-title">Graficas de Estudios Promedios en Puertos</h2>
    </header>
    <div class="panel-body">
       <div class="form-group">
@@ -185,16 +176,12 @@
             <section class="panel panel-featured panel-featured-primary">
                <header class="panel-heading">
                   <h2 class="panel-title">Salinidad (PPt)</h2>
-                  
-                 <!--<div class="panel-actions" >
-                     <button id="btn_save" type="submit"  class="mb-xs mt-xs mr-xs btn btn-primary btn-block save"><i class="fa fa-download"></i></button>
-                  </div>-->
                </header>
             </section>
             <div class="col-md-2"></div>
             <div class="col-md-8" id="grafico_salinidad">
-               <canvas id="base_salinidad" class="chart-horizontal-bar"
-                  chart-data="datas_salinidad" chart-labels="labels" chart-options="opt_salinidad" chart-colors="colors" >
+               <canvas id="mycanvas" class="chart-horizontal-bar"
+                  chart-data="datas_salinidad" chart-labels="labels" chart-colors="colors" chart-options="options" chart-series="series">
                </canvas>
             </div>
             <div class="col-md-2"></div>
@@ -212,7 +199,7 @@
             <div class="col-md-2"></div>
             <div class="col-md-8">
                <canvas id="base" class="chart-horizontal-bar"
-                  chart-data="datas_temperatura" chart-labels="labels" chart-options="opt_temperatura" chart-colors="colors" >
+                  chart-data="datas_temperatura" chart-labels="labels" chart-colors="colors" chart-options="options" chart-series="seriest" >
                </canvas>
             </div>
             <div class="col-md-2"></div>
@@ -230,7 +217,7 @@
             <div class="col-md-2"></div>
             <div class="col-md-8">
                <canvas id="base" class="chart-horizontal-bar"
-                  chart-data="datas_ph" chart-labels="labels" chart-options="opt_ph" chart-colors="colors" >
+                  chart-data="datas_ph" chart-labels="labels" chart-colors="colors" chart-options="options" chart-series="seriesph" >
                </canvas>
             </div>
             <div class="col-md-2"></div>
@@ -248,7 +235,7 @@
             <div class="col-md-2"></div>
             <div class="col-md-8">
                <canvas id="base" class="chart-horizontal-bar"
-                  chart-data="datas_conductividad" chart-labels="labels" chart-options="opt_conductividad" chart-colors="colors" >
+                  chart-data="datas_conductividad" chart-labels="labels" chart-colors="colors" chart-options="options" chart-series="seriesc" >
                </canvas>
             </div>
             <div class="col-md-2"></div>
@@ -270,7 +257,7 @@
             <div class="col-md-2"></div>
             <div class="col-md-8" >
                <canvas id="base_voltotal" class="chart-horizontal-bar"
-                  chart-data="datas_voltotal" chart-labels="labels"  chart-colors="colors" >
+                  chart-data="datas_voltotal" chart-labels="labels"  chart-colors="colors" chart-options="options" chart-series="seriesv" >
                </canvas>
             </div>
             <div class="col-md-2"></div>
@@ -280,7 +267,7 @@
 </section>
 <section id="graficas2" class="panel panel-featured panel-featured-primary">
    <header class="panel-heading">
-      <h2 class="panel-title">Graficas de Estudios</h2>
+      <h2 class="panel-title">Graficas de Estudios Promedios en Buques</h2>
    </header>
    <div class="panel-body">
       <div class="form-group">
@@ -293,7 +280,7 @@
             <div class="col-md-2"></div>
             <div class="col-md-8">
                <canvas id="base" class="chart-horizontal-bar"
-                  chart-data="datas_salinidad" chart-labels="labels" chart-options="opt_salinidad" chart-colors="colors" >
+                  chart-data="datas_salinidad" chart-labels="labels"  chart-colors="colors" chart-options="options" chart-series="series" >
                </canvas>
             </div>
             <div class="col-md-2"></div>
@@ -311,7 +298,7 @@
             <div class="col-md-2"></div>
             <div class="col-md-8">
                <canvas id="base" class="chart-horizontal-bar"
-                  chart-data="datas_temperatura" chart-labels="labels" chart-options="opt_temperatura" chart-colors="colors" >
+                  chart-data="datas_temperatura" chart-labels="labels"  chart-colors="colors" chart-options="options" chart-series="seriest">
                </canvas>
             </div>
             <div class="col-md-2"></div>
@@ -329,7 +316,7 @@
             <div class="col-md-2"></div>
             <div class="col-md-8">
                <canvas id="base" class="chart-horizontal-bar"
-                  chart-data="datas_ph" chart-labels="labels" chart-options="opt_ph" chart-colors="colors" >
+                  chart-data="datas_ph" chart-labels="labels"  chart-colors="colors" chart-options="options" chart-series="seriesph">
                </canvas>
             </div>
             <div class="col-md-2"></div>
@@ -347,7 +334,7 @@
             <div class="col-md-2"></div>
             <div class="col-md-8">
                <canvas id="base" class="chart-horizontal-bar"
-                  chart-data="datas_conductividad" chart-labels="labels" chart-options="opt_conductividad" chart-colors="colors" >
+                  chart-data="datas_conductividad" chart-labels="labels"  chart-colors="colors" chart-options="options" chart-series="seriesc">
                </canvas>
             </div>
             <div class="col-md-2"></div>
@@ -369,7 +356,7 @@
             <div class="col-md-2"></div>
             <div class="col-md-8" >
                <canvas id="base_voltotal" class="chart-horizontal-bar"
-                  chart-data="datas_voltotal" chart-labels="labels"  chart-colors="colors" >
+                  chart-data="datas_voltotal" chart-labels="labels"  chart-colors="colors" chart-options="options" chart-series="seriesv" >
                </canvas>
             </div>
             <div class="col-md-2"></div>
@@ -379,7 +366,7 @@
 </section>
 <section id="graficas3" class="panel panel-featured panel-featured-primary">
    <header class="panel-heading">
-      <h2 class="panel-title">Graficas de Estudios</h2>
+      <h2 class="panel-title">Graficas de Estudios Prodios por Buques y Puertos Especificos</h2>
    </header>
    <div class="panel-body">
       <div class="form-group">
@@ -392,7 +379,7 @@
             <div class="col-md-2"></div>
             <div class="col-md-8">
                <canvas id="base" class="chart-horizontal-bar"
-                  chart-data="datas_salinidad" chart-labels="labels" chart-options="opt_salinidad" chart-colors="colors" >
+                  chart-data="datas_salinidad" chart-labels="labels"  chart-colors="colors" chart-options="options" chart-series="series">
                </canvas>
             </div>
             <div class="col-md-2"></div>
@@ -410,7 +397,7 @@
             <div class="col-md-2"></div>
             <div class="col-md-8">
                <canvas id="base" class="chart-horizontal-bar"
-                  chart-data="datas_temperatura" chart-labels="labels" chart-options="opt_temperatura" chart-colors="colors" >
+                  chart-data="datas_temperatura" chart-labels="labels"  chart-colors="colors" chart-options="options" chart-series="seriest">
                </canvas>
             </div>
             <div class="col-md-2"></div>
@@ -428,7 +415,7 @@
             <div class="col-md-2"></div>
             <div class="col-md-8">
                <canvas id="base" class="chart-horizontal-bar"
-                  chart-data="datas_ph" chart-labels="labels" chart-options="opt_ph" chart-colors="colors" >
+                  chart-data="datas_ph" chart-labels="labels"  chart-colors="colors" chart-options="options" chart-series="seriesph">
                </canvas>
             </div>
             <div class="col-md-2"></div>
@@ -446,7 +433,7 @@
             <div class="col-md-2"></div>
             <div class="col-md-8">
                <canvas id="base" class="chart-horizontal-bar"
-                  chart-data="datas_conductividad" chart-labels="labels" chart-options="opt_conductividad" chart-colors="colors" >
+                  chart-data="datas_conductividad" chart-labels="labels"  chart-colors="colors" chart-options="options" chart-series="seriesc">
                </canvas>
             </div>
             <div class="col-md-2"></div>
@@ -468,7 +455,7 @@
             <div class="col-md-2"></div>
             <div class="col-md-8" >
                <canvas id="base_voltotal" class="chart-horizontal-bar"
-                  chart-data="datas_voltotal" chart-labels="labels"  chart-colors="colors" >
+                  chart-data="datas_voltotal" chart-labels="labels"  chart-colors="colors" chart-options="options" chart-series="seriesv">
                </canvas>
             </div>
             <div class="col-md-2"></div>
