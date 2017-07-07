@@ -54,7 +54,7 @@
                                            <input type="submit" name="submit" id="btnSubmit" value="Upload" />
                                        </form>
 
-                    zform id="Form" name="Form" ng-submit="submit()">
+                    <form id="Form" name="Form" ng-submit="submit()">
 
                         <div class="form-group">
                            <div ng-class="{ 'has-error' : Form.nombre_buque.$invalid && !Form.nombre_buque.$pristine }" class="col-md-4">
