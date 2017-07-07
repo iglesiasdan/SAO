@@ -16,6 +16,7 @@ myApp.controller('buqueController',['$scope','$http','urlbase','$stateParams','$
     url: urlbase+'buques/'
     }).then(function successCallback(response) {
       $scope.posts = response.data;
+      console.log($scope.posts);
       $rootScope.post3 = response.data;
     }, function errorCallback(response) {
       console.log(response.statusText);
