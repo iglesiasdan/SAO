@@ -106,15 +106,21 @@
                               <input type="number" class="form-control" name="capacidad_tanques" id="capacidad_tanques" placeholder="Capcidad total de Tanques" ng-model="post.capacidad_tanques">
                            </div>
                         </div>
-
+                        <div class="form-group">
+                            <div  class="col-md-4">
+                                <label class="control-label" style="text-align: left;"><strong>*Foto del Buque:</strong></label>
+                                <input type="file" name="userPhoto" id="userPhoto" required/>
+                                <!--<p ng-show="Form.userPhoto.$invalid && !Form.userPhoto.$pristine" class="help-block">Seleccione Foto del Buque.</p>-->
+                            </div>
+                        </div>
                         <div class="form-group">
                            <div class="col-md-4">
                               <input class="mb-xs mt-xs mr-xs btn btn-primary" name="submit" ng-disabled="Form.$invalid" type="submit" value="Agregar Buque">
                            </div>
                         </div>
                         <!-- http://107.180.66.98:90:3001/upload -->
-                        <input type="file" name="userPhoto" />
-	                   
+                        
+                        
                   </form>
                   
                   <p>Los Campos que Poseen '*' Son Requeridos.</p>
