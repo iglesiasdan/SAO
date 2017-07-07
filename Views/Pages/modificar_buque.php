@@ -79,23 +79,11 @@
                            </div>
                         </div>
                          <div class="form-group">
-                           <div class="col-md-8">
-                                    <label class="control-label" style="text-align: left;"><strong>Foto del Buque:</strong></label>
-                                    <div class="fileupload fileupload-new" data-provides="fileupload">
-                                       <div class="input-append">
-                                          <div class="uneditable-input">
-                                             <i class="fa fa-file fileupload-exists"></i>
-                                             <span class="fileupload-preview"></span>
-                                          </div>
-                                          <span class="btn btn-default btn-file">
-                                          <span class="fileupload-exists">Cambiar</span>
-                                          <span class="fileupload-new">Seleccionar Archivo</span>
-                                          <input type="file" name="fotos" id="fotos" ng-model="data.Fotos"/> 
-                                          </span>
-                                          <a href="#" class="btn btn-default fileupload-exists" data-dismiss="fileupload">Eliminar</a>
-                                       </div>
-                                    </div>
-                                 </div>
+                            <div class="col-md-6">
+                           <div class="col-md-12 center-block">
+                              <img class="img-responsive center-block" src="http://107.180.66.98/node_backend/uploads/{{selectedBuque.Fotos}}" width="275">
+                           </div>
+                        </div>
                         </div>
                         <div class="form-group">
                            <div class="col-md-4">
