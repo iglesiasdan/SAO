@@ -228,11 +228,14 @@ while ($row4=mysqli_fetch_array($resultado4)) {
               ->setCellValue($col[$cont].'34', $row4['Volumen']); 
     $cont++;
 }
-    $arr[0]/=$size;
+    if ($size!=0) {
+      $arr[0]/=$size;
     $arr[1]/=$size;
     $arr[2]/=$size;
     $arr[3]/=$size;
     $arr[4]/=$size;
+    }
+    
     
    if ($paginado == 0) {
     $objPHPExcel->setActiveSheetIndex($sheetIndex)
