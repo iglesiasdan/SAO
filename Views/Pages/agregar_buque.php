@@ -108,8 +108,8 @@
                         </div>
                         <div class="form-group">
                             <div  class="col-md-4">
-                                <label class="control-label" style="text-align: left;"><strong>*Foto del Buque:</strong></label>
-                                <input type="file" name="userPhoto" id="userPhoto" required/>
+                                <label class="control-label" style="text-align: left;"><strong>Foto del Buque:</strong></label>
+                                <input type="file" name="userPhoto" id="userPhoto"/>
                                 <!--<p ng-show="Form.userPhoto.$invalid && !Form.userPhoto.$pristine" class="help-block">Seleccione Foto del Buque.</p>-->
                             </div>
                         </div>
