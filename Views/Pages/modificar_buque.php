@@ -87,7 +87,7 @@
                         </div>
                         <div class="form-group">
                            <div class="col-md-4">
-                              <input class="mb-xs mt-xs mr-xs btn btn-primary boton" ng-click="submit()" type="submit" value="Modificar Buque">
+                              <input class="mb-xs mt-xs mr-xs btn btn-primary boton" ng-click="()" type="submit" value="Modificar Buque">
                            </div>
                         </div>
                      </div>
